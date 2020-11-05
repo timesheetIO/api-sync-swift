@@ -18,8 +18,34 @@ extension TimesheetSyncApi.Profile {
 
         public final class Request: APIRequest<Response> {
 
-            public init() {
+            public struct Options {
+
+                public var referrer: String?
+
+                public init(referrer: String? = nil) {
+                    self.referrer = referrer
+                }
+            }
+
+            public var options: Options
+
+            public init(options: Options) {
+                self.options = options
                 super.init(service: Get.service)
+            }
+
+            /// convenience initialiser so an Option doesn't have to be created
+            public convenience init(referrer: String? = nil) {
+                let options = Options(referrer: referrer)
+                self.init(options: options)
+            }
+
+            public override var queryParameters: [String: Any] {
+                var params: [String: Any] = [:]
+                if let referrer = options.referrer {
+                  params["referrer"] = referrer
+                }
+                return params
             }
         }
 
