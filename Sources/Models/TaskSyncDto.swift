@@ -45,11 +45,13 @@ public class TaskSyncDto: APIModel {
 
     public var startDateTime: String?
 
+    public var todoId: String?
+
     public var typeId: Int?
 
     public var user: String?
 
-    public init(billable: Bool? = nil, billed: Bool? = nil, created: Int? = nil, deleted: Bool? = nil, description: String? = nil, distance: Double? = nil, endDateTime: String? = nil, feeling: Int? = nil, id: String? = nil, lastUpdate: Int? = nil, location: String? = nil, locationEnd: String? = nil, paid: Bool? = nil, phoneNumber: String? = nil, projectId: String? = nil, rateId: String? = nil, running: Bool? = nil, signature: String? = nil, startDateTime: String? = nil, typeId: Int? = nil, user: String? = nil) {
+    public init(billable: Bool? = nil, billed: Bool? = nil, created: Int? = nil, deleted: Bool? = nil, description: String? = nil, distance: Double? = nil, endDateTime: String? = nil, feeling: Int? = nil, id: String? = nil, lastUpdate: Int? = nil, location: String? = nil, locationEnd: String? = nil, paid: Bool? = nil, phoneNumber: String? = nil, projectId: String? = nil, rateId: String? = nil, running: Bool? = nil, signature: String? = nil, startDateTime: String? = nil, todoId: String? = nil, typeId: Int? = nil, user: String? = nil) {
         self.billable = billable
         self.billed = billed
         self.created = created
@@ -69,6 +71,7 @@ public class TaskSyncDto: APIModel {
         self.running = running
         self.signature = signature
         self.startDateTime = startDateTime
+        self.todoId = todoId
         self.typeId = typeId
         self.user = user
     }
@@ -95,6 +98,7 @@ public class TaskSyncDto: APIModel {
         running = try container.decodeIfPresent("running")
         signature = try container.decodeIfPresent("signature")
         startDateTime = try container.decodeIfPresent("startDateTime")
+        todoId = try container.decodeIfPresent("todoId")
         typeId = try container.decodeIfPresent("typeId")
         user = try container.decodeIfPresent("user")
     }
@@ -121,6 +125,7 @@ public class TaskSyncDto: APIModel {
         try container.encodeIfPresent(running, forKey: "running")
         try container.encodeIfPresent(signature, forKey: "signature")
         try container.encodeIfPresent(startDateTime, forKey: "startDateTime")
+        try container.encodeIfPresent(todoId, forKey: "todoId")
         try container.encodeIfPresent(typeId, forKey: "typeId")
         try container.encodeIfPresent(user, forKey: "user")
     }
@@ -146,6 +151,7 @@ public class TaskSyncDto: APIModel {
       guard self.running == object.running else { return false }
       guard self.signature == object.signature else { return false }
       guard self.startDateTime == object.startDateTime else { return false }
+      guard self.todoId == object.todoId else { return false }
       guard self.typeId == object.typeId else { return false }
       guard self.user == object.user else { return false }
       return true
