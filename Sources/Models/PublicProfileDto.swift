@@ -128,18 +128,15 @@ public class PublicProfileDto: APIModel {
     public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
-        self.activationDate = activationDate
         self.active = active
         self.admin = admin
         self.at = at
         self.business = business
         self.businessCustomer = businessCustomer
-        self.cancellationDate = cancellationDate
         self.cancellationOffer = cancellationOffer
         self.city = city
         self.country = country
         self.countryName = countryName
-        self.createdAt = createdAt
         self.currency = currency
         self.displayName = displayName
         self.email = email
@@ -173,7 +170,6 @@ public class PublicProfileDto: APIModel {
         self.pro = pro
         self.product = product
         self.referrer = referrer
-        self.startedTestimonial = startedTestimonial
         self.state = state
         self.status = status
         self.street = street
@@ -196,18 +192,15 @@ public class PublicProfileDto: APIModel {
 
         activated = try container.decodeIfPresent("activated")
         activatedTeams = try container.decodeIfPresent("activatedTeams")
-        activationDate = try container.decodeIfPresent("activationDate")
         active = try container.decodeIfPresent("active")
         admin = try container.decodeIfPresent("admin")
         at = try container.decodeIfPresent("at")
         business = try container.decodeIfPresent("business")
         businessCustomer = try container.decodeIfPresent("businessCustomer")
-        cancellationDate = try container.decodeIfPresent("cancellationDate")
         cancellationOffer = try container.decodeIfPresent("cancellationOffer")
         city = try container.decodeIfPresent("city")
         country = try container.decodeIfPresent("country")
         countryName = try container.decodeIfPresent("countryName")
-        createdAt = try container.decodeIfPresent("createdAt")
         currency = try container.decodeIfPresent("currency")
         displayName = try container.decodeIfPresent("displayName")
         email = try container.decodeIfPresent("email")
@@ -241,7 +234,6 @@ public class PublicProfileDto: APIModel {
         pro = try container.decodeIfPresent("pro")
         product = try container.decodeIfPresent("product")
         referrer = try container.decodeIfPresent("referrer")
-        startedTestimonial = try container.decodeIfPresent("startedTestimonial")
         state = try container.decodeIfPresent("state")
         status = try container.decodeIfPresent("status")
         street = try container.decodeIfPresent("street")
@@ -264,18 +256,15 @@ public class PublicProfileDto: APIModel {
 
         try container.encodeIfPresent(activated, forKey: "activated")
         try container.encodeIfPresent(activatedTeams, forKey: "activatedTeams")
-        try container.encodeIfPresent(activationDate, forKey: "activationDate")
         try container.encodeIfPresent(active, forKey: "active")
         try container.encodeIfPresent(admin, forKey: "admin")
         try container.encodeIfPresent(at, forKey: "at")
         try container.encodeIfPresent(business, forKey: "business")
         try container.encodeIfPresent(businessCustomer, forKey: "businessCustomer")
-        try container.encodeIfPresent(cancellationDate, forKey: "cancellationDate")
         try container.encodeIfPresent(cancellationOffer, forKey: "cancellationOffer")
         try container.encodeIfPresent(city, forKey: "city")
         try container.encodeIfPresent(country, forKey: "country")
         try container.encodeIfPresent(countryName, forKey: "countryName")
-        try container.encodeIfPresent(createdAt, forKey: "createdAt")
         try container.encodeIfPresent(currency, forKey: "currency")
         try container.encodeIfPresent(displayName, forKey: "displayName")
         try container.encodeIfPresent(email, forKey: "email")
@@ -309,7 +298,6 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(pro, forKey: "pro")
         try container.encodeIfPresent(product, forKey: "product")
         try container.encodeIfPresent(referrer, forKey: "referrer")
-        try container.encodeIfPresent(startedTestimonial, forKey: "startedTestimonial")
         try container.encodeIfPresent(state, forKey: "state")
         try container.encodeIfPresent(status, forKey: "status")
         try container.encodeIfPresent(street, forKey: "street")
@@ -331,18 +319,15 @@ public class PublicProfileDto: APIModel {
       guard let object = object as? PublicProfileDto else { return false }
       guard self.activated == object.activated else { return false }
       guard self.activatedTeams == object.activatedTeams else { return false }
-      guard self.activationDate == object.activationDate else { return false }
       guard self.active == object.active else { return false }
       guard self.admin == object.admin else { return false }
       guard self.at == object.at else { return false }
       guard self.business == object.business else { return false }
       guard self.businessCustomer == object.businessCustomer else { return false }
-      guard self.cancellationDate == object.cancellationDate else { return false }
       guard self.cancellationOffer == object.cancellationOffer else { return false }
       guard self.city == object.city else { return false }
       guard self.country == object.country else { return false }
       guard self.countryName == object.countryName else { return false }
-      guard self.createdAt == object.createdAt else { return false }
       guard self.currency == object.currency else { return false }
       guard self.displayName == object.displayName else { return false }
       guard self.email == object.email else { return false }
@@ -376,7 +361,6 @@ public class PublicProfileDto: APIModel {
       guard self.pro == object.pro else { return false }
       guard self.product == object.product else { return false }
       guard self.referrer == object.referrer else { return false }
-      guard self.startedTestimonial == object.startedTestimonial else { return false }
       guard self.state == object.state else { return false }
       guard self.status == object.status else { return false }
       guard self.street == object.street else { return false }
