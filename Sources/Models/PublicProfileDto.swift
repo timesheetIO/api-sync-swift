@@ -11,7 +11,7 @@ public class PublicProfileDto: APIModel {
 
     public var activatedTeams: Bool?
 
-    public var activationDate: DateTime?
+    public var activationDate: Date?
 
     public var active: Bool?
 
@@ -23,7 +23,7 @@ public class PublicProfileDto: APIModel {
 
     public var businessCustomer: Bool?
 
-    public var cancellationDate: DateTime?
+    public var cancellationDate: Date?
 
     public var cancellationOffer: Bool?
 
@@ -33,7 +33,7 @@ public class PublicProfileDto: APIModel {
 
     public var countryName: String?
 
-    public var createdAt: DateTime?
+    public var createdAt: Date?
 
     public var currency: String?
 
@@ -101,7 +101,7 @@ public class PublicProfileDto: APIModel {
 
     public var referrer: String?
 
-    public var startedTestimonial: DateTime?
+    public var startedTestimonial: Date?
 
     public var state: String?
 
@@ -133,7 +133,7 @@ public class PublicProfileDto: APIModel {
 
     public var zip: String?
 
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, activationDate: DateTime? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationDate: DateTime? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, createdAt: DateTime? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, startedTestimonial: DateTime? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, activationDate: Date? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationDate: Date? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, createdAt: Date? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, startedTestimonial: Date? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.activationDate = activationDate
