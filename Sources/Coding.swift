@@ -7,7 +7,6 @@ import Foundation
 
 public protocol APIModel: Codable, Equatable { }
 
-public typealias DateDay = Date
 public typealias DateTime = Date
 public typealias File = Data
 public typealias ID = UUID
