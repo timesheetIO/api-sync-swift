@@ -11,8 +11,6 @@ public class PublicProfileDto: APIModel {
 
     public var activatedTeams: Bool?
 
-    public var activationDate: DateDay?
-
     public var active: Bool?
 
     public var admin: Bool?
@@ -23,8 +21,6 @@ public class PublicProfileDto: APIModel {
 
     public var businessCustomer: Bool?
 
-    public var cancellationDate: DateDay?
-
     public var cancellationOffer: Bool?
 
     public var city: String?
@@ -32,8 +28,6 @@ public class PublicProfileDto: APIModel {
     public var country: String?
 
     public var countryName: String?
-
-    public var createdAt: DateDay?
 
     public var currency: String?
 
@@ -101,8 +95,6 @@ public class PublicProfileDto: APIModel {
 
     public var referrer: String?
 
-    public var startedTestimonial: DateDay?
-
     public var state: String?
 
     public var status: Int?
@@ -133,7 +125,7 @@ public class PublicProfileDto: APIModel {
 
     public var zip: String?
 
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, activationDate: DateDay? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationDate: DateDay? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, createdAt: DateDay? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, startedTestimonial: DateDay? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.activationDate = activationDate
