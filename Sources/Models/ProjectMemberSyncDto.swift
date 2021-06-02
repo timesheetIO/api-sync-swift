@@ -19,17 +19,23 @@ public class ProjectMemberSyncDto: APIModel {
 
     public var projectId: String?
 
+    public var salary: Double?
+
+    public var salaryActivated: Bool?
+
     public var teamId: String?
 
     public var user: String?
 
-    public init(created: Int? = nil, deleted: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, permission: Int? = nil, projectId: String? = nil, teamId: String? = nil, user: String? = nil) {
+    public init(created: Int? = nil, deleted: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, permission: Int? = nil, projectId: String? = nil, salary: Double? = nil, salaryActivated: Bool? = nil, teamId: String? = nil, user: String? = nil) {
         self.created = created
         self.deleted = deleted
         self.id = id
         self.lastUpdate = lastUpdate
         self.permission = permission
         self.projectId = projectId
+        self.salary = salary
+        self.salaryActivated = salaryActivated
         self.teamId = teamId
         self.user = user
     }
@@ -43,6 +49,8 @@ public class ProjectMemberSyncDto: APIModel {
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         permission = try container.decodeIfPresent("permission")
         projectId = try container.decodeIfPresent("projectId")
+        salary = try container.decodeIfPresent("salary")
+        salaryActivated = try container.decodeIfPresent("salaryActivated")
         teamId = try container.decodeIfPresent("teamId")
         user = try container.decodeIfPresent("user")
     }
@@ -56,6 +64,8 @@ public class ProjectMemberSyncDto: APIModel {
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(permission, forKey: "permission")
         try container.encodeIfPresent(projectId, forKey: "projectId")
+        try container.encodeIfPresent(salary, forKey: "salary")
+        try container.encodeIfPresent(salaryActivated, forKey: "salaryActivated")
         try container.encodeIfPresent(teamId, forKey: "teamId")
         try container.encodeIfPresent(user, forKey: "user")
     }
@@ -68,6 +78,8 @@ public class ProjectMemberSyncDto: APIModel {
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.permission == object.permission else { return false }
       guard self.projectId == object.projectId else { return false }
+      guard self.salary == object.salary else { return false }
+      guard self.salaryActivated == object.salaryActivated else { return false }
       guard self.teamId == object.teamId else { return false }
       guard self.user == object.user else { return false }
       return true

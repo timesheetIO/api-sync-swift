@@ -77,13 +77,19 @@ public class SyncData: APIModel {
 
     public var teams: [TeamSyncDto]?
 
+    public var timerCount: Int?
+
+    public var timerState: Int?
+
+    public var timers: [TimerSyncDto]?
+
     public var todoCount: Int?
 
     public var todoState: Int?
 
     public var todos: [ToDoSyncDto]?
 
-    public init(deviceId: String? = nil, expenseCount: Int? = nil, expenseState: Int? = nil, expenses: [ExpenseSyncDto]? = nil, noteCount: Int? = nil, noteState: Int? = nil, notes: [NoteSyncDto]? = nil, pauseCount: Int? = nil, pauseState: Int? = nil, pauses: [PauseSyncDto]? = nil, projectCount: Int? = nil, projectMemberCount: Int? = nil, projectMemberState: Int? = nil, projectMembers: [ProjectMemberSyncDto]? = nil, projectState: Int? = nil, projects: [ProjectSyncDto]? = nil, rateCount: Int? = nil, rateState: Int? = nil, rates: [RateSyncDto]? = nil, syncState: Int? = nil, tagCount: Int? = nil, tagState: Int? = nil, tags: [TagSyncDto]? = nil, taskCount: Int? = nil, taskState: Int? = nil, taskTagCount: Int? = nil, taskTagState: Int? = nil, taskTags: [TaskTagSyncDto]? = nil, tasks: [TaskSyncDto]? = nil, teamCount: Int? = nil, teamMemberCount: Int? = nil, teamMemberState: Int? = nil, teamMembers: [TeamMemberSyncDto]? = nil, teamState: Int? = nil, teams: [TeamSyncDto]? = nil, todoCount: Int? = nil, todoState: Int? = nil, todos: [ToDoSyncDto]? = nil) {
+    public init(deviceId: String? = nil, expenseCount: Int? = nil, expenseState: Int? = nil, expenses: [ExpenseSyncDto]? = nil, noteCount: Int? = nil, noteState: Int? = nil, notes: [NoteSyncDto]? = nil, pauseCount: Int? = nil, pauseState: Int? = nil, pauses: [PauseSyncDto]? = nil, projectCount: Int? = nil, projectMemberCount: Int? = nil, projectMemberState: Int? = nil, projectMembers: [ProjectMemberSyncDto]? = nil, projectState: Int? = nil, projects: [ProjectSyncDto]? = nil, rateCount: Int? = nil, rateState: Int? = nil, rates: [RateSyncDto]? = nil, syncState: Int? = nil, tagCount: Int? = nil, tagState: Int? = nil, tags: [TagSyncDto]? = nil, taskCount: Int? = nil, taskState: Int? = nil, taskTagCount: Int? = nil, taskTagState: Int? = nil, taskTags: [TaskTagSyncDto]? = nil, tasks: [TaskSyncDto]? = nil, teamCount: Int? = nil, teamMemberCount: Int? = nil, teamMemberState: Int? = nil, teamMembers: [TeamMemberSyncDto]? = nil, teamState: Int? = nil, teams: [TeamSyncDto]? = nil, timerCount: Int? = nil, timerState: Int? = nil, timers: [TimerSyncDto]? = nil, todoCount: Int? = nil, todoState: Int? = nil, todos: [ToDoSyncDto]? = nil) {
         self.deviceId = deviceId
         self.expenseCount = expenseCount
         self.expenseState = expenseState
@@ -119,6 +125,9 @@ public class SyncData: APIModel {
         self.teamMembers = teamMembers
         self.teamState = teamState
         self.teams = teams
+        self.timerCount = timerCount
+        self.timerState = timerState
+        self.timers = timers
         self.todoCount = todoCount
         self.todoState = todoState
         self.todos = todos
@@ -162,6 +171,9 @@ public class SyncData: APIModel {
         teamMembers = try container.decodeArrayIfPresent("teamMembers")
         teamState = try container.decodeIfPresent("teamState")
         teams = try container.decodeArrayIfPresent("teams")
+        timerCount = try container.decodeIfPresent("timerCount")
+        timerState = try container.decodeIfPresent("timerState")
+        timers = try container.decodeArrayIfPresent("timers")
         todoCount = try container.decodeIfPresent("todoCount")
         todoState = try container.decodeIfPresent("todoState")
         todos = try container.decodeArrayIfPresent("todos")
@@ -205,6 +217,9 @@ public class SyncData: APIModel {
         try container.encodeIfPresent(teamMembers, forKey: "teamMembers")
         try container.encodeIfPresent(teamState, forKey: "teamState")
         try container.encodeIfPresent(teams, forKey: "teams")
+        try container.encodeIfPresent(timerCount, forKey: "timerCount")
+        try container.encodeIfPresent(timerState, forKey: "timerState")
+        try container.encodeIfPresent(timers, forKey: "timers")
         try container.encodeIfPresent(todoCount, forKey: "todoCount")
         try container.encodeIfPresent(todoState, forKey: "todoState")
         try container.encodeIfPresent(todos, forKey: "todos")
@@ -247,6 +262,9 @@ public class SyncData: APIModel {
       guard self.teamMembers == object.teamMembers else { return false }
       guard self.teamState == object.teamState else { return false }
       guard self.teams == object.teams else { return false }
+      guard self.timerCount == object.timerCount else { return false }
+      guard self.timerState == object.timerState else { return false }
+      guard self.timers == object.timers else { return false }
       guard self.todoCount == object.todoCount else { return false }
       guard self.todoState == object.todoState else { return false }
       guard self.todos == object.todos else { return false }

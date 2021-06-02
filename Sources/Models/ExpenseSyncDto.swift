@@ -17,6 +17,10 @@ public class ExpenseSyncDto: APIModel {
 
     public var description: String?
 
+    public var fileName: String?
+
+    public var fileUri: String?
+
     public var id: String?
 
     public var lastUpdate: Int?
@@ -27,12 +31,14 @@ public class ExpenseSyncDto: APIModel {
 
     public var user: String?
 
-    public init(amount: Double? = nil, created: Int? = nil, dateTime: String? = nil, deleted: Bool? = nil, description: String? = nil, id: String? = nil, lastUpdate: Int? = nil, refunded: Bool? = nil, taskId: String? = nil, user: String? = nil) {
+    public init(amount: Double? = nil, created: Int? = nil, dateTime: String? = nil, deleted: Bool? = nil, description: String? = nil, fileName: String? = nil, fileUri: String? = nil, id: String? = nil, lastUpdate: Int? = nil, refunded: Bool? = nil, taskId: String? = nil, user: String? = nil) {
         self.amount = amount
         self.created = created
         self.dateTime = dateTime
         self.deleted = deleted
         self.description = description
+        self.fileName = fileName
+        self.fileUri = fileUri
         self.id = id
         self.lastUpdate = lastUpdate
         self.refunded = refunded
@@ -48,6 +54,8 @@ public class ExpenseSyncDto: APIModel {
         dateTime = try container.decodeIfPresent("dateTime")
         deleted = try container.decodeIfPresent("deleted")
         description = try container.decodeIfPresent("description")
+        fileName = try container.decodeIfPresent("fileName")
+        fileUri = try container.decodeIfPresent("fileUri")
         id = try container.decodeIfPresent("id")
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         refunded = try container.decodeIfPresent("refunded")
@@ -63,6 +71,8 @@ public class ExpenseSyncDto: APIModel {
         try container.encodeIfPresent(dateTime, forKey: "dateTime")
         try container.encodeIfPresent(deleted, forKey: "deleted")
         try container.encodeIfPresent(description, forKey: "description")
+        try container.encodeIfPresent(fileName, forKey: "fileName")
+        try container.encodeIfPresent(fileUri, forKey: "fileUri")
         try container.encodeIfPresent(id, forKey: "id")
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(refunded, forKey: "refunded")
@@ -77,6 +87,8 @@ public class ExpenseSyncDto: APIModel {
       guard self.dateTime == object.dateTime else { return false }
       guard self.deleted == object.deleted else { return false }
       guard self.description == object.description else { return false }
+      guard self.fileName == object.fileName else { return false }
+      guard self.fileUri == object.fileUri else { return false }
       guard self.id == object.id else { return false }
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.refunded == object.refunded else { return false }

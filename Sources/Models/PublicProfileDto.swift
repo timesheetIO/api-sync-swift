@@ -17,6 +17,8 @@ public class PublicProfileDto: APIModel {
 
     public var at: Bool?
 
+    public var basic: Bool?
+
     public var business: String?
 
     public var businessCustomer: Bool?
@@ -113,6 +115,8 @@ public class PublicProfileDto: APIModel {
 
     public var trial: Bool?
 
+    public var uk: Bool?
+
     public var user: String?
 
     public var valid: Bool?
@@ -125,12 +129,13 @@ public class PublicProfileDto: APIModel {
 
     public var zip: String?
 
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.active = active
         self.admin = admin
         self.at = at
+        self.basic = basic
         self.business = business
         self.businessCustomer = businessCustomer
         self.cancellationOffer = cancellationOffer
@@ -179,6 +184,7 @@ public class PublicProfileDto: APIModel {
         self.subscriptionInactive = subscriptionInactive
         self.taxId = taxId
         self.trial = trial
+        self.uk = uk
         self.user = user
         self.valid = valid
         self.validAndActivated = validAndActivated
@@ -195,6 +201,7 @@ public class PublicProfileDto: APIModel {
         active = try container.decodeIfPresent("active")
         admin = try container.decodeIfPresent("admin")
         at = try container.decodeIfPresent("at")
+        basic = try container.decodeIfPresent("basic")
         business = try container.decodeIfPresent("business")
         businessCustomer = try container.decodeIfPresent("businessCustomer")
         cancellationOffer = try container.decodeIfPresent("cancellationOffer")
@@ -243,6 +250,7 @@ public class PublicProfileDto: APIModel {
         subscriptionInactive = try container.decodeIfPresent("subscriptionInactive")
         taxId = try container.decodeIfPresent("taxId")
         trial = try container.decodeIfPresent("trial")
+        uk = try container.decodeIfPresent("uk")
         user = try container.decodeIfPresent("user")
         valid = try container.decodeIfPresent("valid")
         validAndActivated = try container.decodeIfPresent("validAndActivated")
@@ -259,6 +267,7 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(active, forKey: "active")
         try container.encodeIfPresent(admin, forKey: "admin")
         try container.encodeIfPresent(at, forKey: "at")
+        try container.encodeIfPresent(basic, forKey: "basic")
         try container.encodeIfPresent(business, forKey: "business")
         try container.encodeIfPresent(businessCustomer, forKey: "businessCustomer")
         try container.encodeIfPresent(cancellationOffer, forKey: "cancellationOffer")
@@ -307,6 +316,7 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(subscriptionInactive, forKey: "subscriptionInactive")
         try container.encodeIfPresent(taxId, forKey: "taxId")
         try container.encodeIfPresent(trial, forKey: "trial")
+        try container.encodeIfPresent(uk, forKey: "uk")
         try container.encodeIfPresent(user, forKey: "user")
         try container.encodeIfPresent(valid, forKey: "valid")
         try container.encodeIfPresent(validAndActivated, forKey: "validAndActivated")
@@ -322,6 +332,7 @@ public class PublicProfileDto: APIModel {
       guard self.active == object.active else { return false }
       guard self.admin == object.admin else { return false }
       guard self.at == object.at else { return false }
+      guard self.basic == object.basic else { return false }
       guard self.business == object.business else { return false }
       guard self.businessCustomer == object.businessCustomer else { return false }
       guard self.cancellationOffer == object.cancellationOffer else { return false }
@@ -370,6 +381,7 @@ public class PublicProfileDto: APIModel {
       guard self.subscriptionInactive == object.subscriptionInactive else { return false }
       guard self.taxId == object.taxId else { return false }
       guard self.trial == object.trial else { return false }
+      guard self.uk == object.uk else { return false }
       guard self.user == object.user else { return false }
       guard self.valid == object.valid else { return false }
       guard self.validAndActivated == object.validAndActivated else { return false }
