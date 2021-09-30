@@ -7,6 +7,12 @@ import Foundation
 
 public class SyncData: APIModel {
 
+    public var automationCount: Int?
+
+    public var automationState: Int?
+
+    public var automations: [AutomationSyncDto]?
+
     public var deviceId: String?
 
     public var expenseCount: Int?
@@ -89,7 +95,10 @@ public class SyncData: APIModel {
 
     public var todos: [ToDoSyncDto]?
 
-    public init(deviceId: String? = nil, expenseCount: Int? = nil, expenseState: Int? = nil, expenses: [ExpenseSyncDto]? = nil, noteCount: Int? = nil, noteState: Int? = nil, notes: [NoteSyncDto]? = nil, pauseCount: Int? = nil, pauseState: Int? = nil, pauses: [PauseSyncDto]? = nil, projectCount: Int? = nil, projectMemberCount: Int? = nil, projectMemberState: Int? = nil, projectMembers: [ProjectMemberSyncDto]? = nil, projectState: Int? = nil, projects: [ProjectSyncDto]? = nil, rateCount: Int? = nil, rateState: Int? = nil, rates: [RateSyncDto]? = nil, syncState: Int? = nil, tagCount: Int? = nil, tagState: Int? = nil, tags: [TagSyncDto]? = nil, taskCount: Int? = nil, taskState: Int? = nil, taskTagCount: Int? = nil, taskTagState: Int? = nil, taskTags: [TaskTagSyncDto]? = nil, tasks: [TaskSyncDto]? = nil, teamCount: Int? = nil, teamMemberCount: Int? = nil, teamMemberState: Int? = nil, teamMembers: [TeamMemberSyncDto]? = nil, teamState: Int? = nil, teams: [TeamSyncDto]? = nil, timerCount: Int? = nil, timerState: Int? = nil, timers: [TimerSyncDto]? = nil, todoCount: Int? = nil, todoState: Int? = nil, todos: [ToDoSyncDto]? = nil) {
+    public init(automationCount: Int? = nil, automationState: Int? = nil, automations: [AutomationSyncDto]? = nil, deviceId: String? = nil, expenseCount: Int? = nil, expenseState: Int? = nil, expenses: [ExpenseSyncDto]? = nil, noteCount: Int? = nil, noteState: Int? = nil, notes: [NoteSyncDto]? = nil, pauseCount: Int? = nil, pauseState: Int? = nil, pauses: [PauseSyncDto]? = nil, projectCount: Int? = nil, projectMemberCount: Int? = nil, projectMemberState: Int? = nil, projectMembers: [ProjectMemberSyncDto]? = nil, projectState: Int? = nil, projects: [ProjectSyncDto]? = nil, rateCount: Int? = nil, rateState: Int? = nil, rates: [RateSyncDto]? = nil, syncState: Int? = nil, tagCount: Int? = nil, tagState: Int? = nil, tags: [TagSyncDto]? = nil, taskCount: Int? = nil, taskState: Int? = nil, taskTagCount: Int? = nil, taskTagState: Int? = nil, taskTags: [TaskTagSyncDto]? = nil, tasks: [TaskSyncDto]? = nil, teamCount: Int? = nil, teamMemberCount: Int? = nil, teamMemberState: Int? = nil, teamMembers: [TeamMemberSyncDto]? = nil, teamState: Int? = nil, teams: [TeamSyncDto]? = nil, timerCount: Int? = nil, timerState: Int? = nil, timers: [TimerSyncDto]? = nil, todoCount: Int? = nil, todoState: Int? = nil, todos: [ToDoSyncDto]? = nil) {
+        self.automationCount = automationCount
+        self.automationState = automationState
+        self.automations = automations
         self.deviceId = deviceId
         self.expenseCount = expenseCount
         self.expenseState = expenseState
@@ -136,6 +145,9 @@ public class SyncData: APIModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StringCodingKey.self)
 
+        automationCount = try container.decodeIfPresent("automationCount")
+        automationState = try container.decodeIfPresent("automationState")
+        automations = try container.decodeArrayIfPresent("automations")
         deviceId = try container.decodeIfPresent("deviceId")
         expenseCount = try container.decodeIfPresent("expenseCount")
         expenseState = try container.decodeIfPresent("expenseState")
@@ -182,6 +194,9 @@ public class SyncData: APIModel {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 
+        try container.encodeIfPresent(automationCount, forKey: "automationCount")
+        try container.encodeIfPresent(automationState, forKey: "automationState")
+        try container.encodeIfPresent(automations, forKey: "automations")
         try container.encodeIfPresent(deviceId, forKey: "deviceId")
         try container.encodeIfPresent(expenseCount, forKey: "expenseCount")
         try container.encodeIfPresent(expenseState, forKey: "expenseState")
@@ -227,6 +242,9 @@ public class SyncData: APIModel {
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? SyncData else { return false }
+      guard self.automationCount == object.automationCount else { return false }
+      guard self.automationState == object.automationState else { return false }
+      guard self.automations == object.automations else { return false }
       guard self.deviceId == object.deviceId else { return false }
       guard self.expenseCount == object.expenseCount else { return false }
       guard self.expenseState == object.expenseState else { return false }

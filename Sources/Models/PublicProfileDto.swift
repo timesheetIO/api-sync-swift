@@ -77,6 +77,8 @@ public class PublicProfileDto: APIModel {
 
     public var monthly: Bool?
 
+    public var needsSetup: Bool?
+
     public var newsletter: Bool?
 
     public var payPalPayment: Bool?
@@ -129,7 +131,7 @@ public class PublicProfileDto: APIModel {
 
     public var zip: String?
 
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryName: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.active = active
@@ -165,6 +167,7 @@ public class PublicProfileDto: APIModel {
         self.member = member
         self.members = members
         self.monthly = monthly
+        self.needsSetup = needsSetup
         self.newsletter = newsletter
         self.payPalPayment = payPalPayment
         self.paymentOption = paymentOption
@@ -231,6 +234,7 @@ public class PublicProfileDto: APIModel {
         member = try container.decodeIfPresent("member")
         members = try container.decodeIfPresent("members")
         monthly = try container.decodeIfPresent("monthly")
+        needsSetup = try container.decodeIfPresent("needsSetup")
         newsletter = try container.decodeIfPresent("newsletter")
         payPalPayment = try container.decodeIfPresent("payPalPayment")
         paymentOption = try container.decodeIfPresent("paymentOption")
@@ -297,6 +301,7 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(member, forKey: "member")
         try container.encodeIfPresent(members, forKey: "members")
         try container.encodeIfPresent(monthly, forKey: "monthly")
+        try container.encodeIfPresent(needsSetup, forKey: "needsSetup")
         try container.encodeIfPresent(newsletter, forKey: "newsletter")
         try container.encodeIfPresent(payPalPayment, forKey: "payPalPayment")
         try container.encodeIfPresent(paymentOption, forKey: "paymentOption")
@@ -362,6 +367,7 @@ public class PublicProfileDto: APIModel {
       guard self.member == object.member else { return false }
       guard self.members == object.members else { return false }
       guard self.monthly == object.monthly else { return false }
+      guard self.needsSetup == object.needsSetup else { return false }
       guard self.newsletter == object.newsletter else { return false }
       guard self.payPalPayment == object.payPalPayment else { return false }
       guard self.paymentOption == object.paymentOption else { return false }

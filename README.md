@@ -1,4 +1,4 @@
-# Timesheet Sync Api
+# TimesheetSyncApi
 
 This is an api generated from a OpenAPI 3.0 spec with [SwagGen](https://github.com/yonaskolb/SwagGen)
 
@@ -150,6 +150,7 @@ To add support for a specific asynchronous library, just add an extension on `AP
 
 ## Models
 
+- **AutomationSyncDto**
 - **DeviceCreateDto**
 - **DeviceDto**
 - **ExpenseSyncDto**
@@ -165,6 +166,7 @@ To add support for a specific asynchronous library, just add an extension on `AP
 - **TaskTagSyncDto**
 - **TeamMemberSyncDto**
 - **TeamSyncDto**
+- **TimerSyncDto**
 - **ToDoSyncDto**
 
 ## Requests
@@ -178,6 +180,7 @@ To add support for a specific asynchronous library, just add an extension on `AP
 	- **Get**: GET `/v1/profiles/me`
 - **TimesheetSyncApi.Synchronisation**
 	- **FinishedSyncData**: POST `/v1/sync/finishedsyncdata`
+	- **GetAutomationSyncData**: GET `/v1/sync/getautomationsyncdata`
 	- **GetExpenseSyncData**: GET `/v1/sync/getexpensesyncdata`
 	- **GetNoteSyncData**: GET `/v1/sync/getnotesyncdata`
 	- **GetPauseSyncData**: GET `/v1/sync/getpausesyncdata`
@@ -190,6 +193,9 @@ To add support for a specific asynchronous library, just add an extension on `AP
 	- **GetTaskTagSyncData**: GET `/v1/sync/gettasktagsyncdata`
 	- **GetTeamMemberSyncData**: GET `/v1/sync/getteammembersyncdata`
 	- **GetTeamSyncData**: GET `/v1/sync/getteamsyncdata`
+	- **GetTimerSyncData**: GET `/v1/sync/gettimersyncdata`
+	- **GetTodoSyncData**: GET `/v1/sync/gettodosyncdata`
+	- **PostAutomationSyncData**: POST `/v1/sync/postautomationsyncdata`
 	- **PostExpenseSyncData**: POST `/v1/sync/postexpensesyncdata`
 	- **PostNoteSyncData**: POST `/v1/sync/postnotesyncdata`
 	- **PostPauseSyncData**: POST `/v1/sync/postpausesyncdata`
@@ -201,3 +207,5 @@ To add support for a specific asynchronous library, just add an extension on `AP
 	- **PostTaskTagSyncData**: POST `/v1/sync/posttasktagsyncdata`
 	- **PostTeamMemberSyncData**: POST `/v1/sync/postteammembersyncdata`
 	- **PostTeamSyncData**: POST `/v1/sync/postteamsyncdata`
+	- **PostTimerSyncData**: POST `/v1/sync/posttimersyncdata`
+	- **PostTodoSyncData**: POST `/v1/sync/posttodosyncdata`
