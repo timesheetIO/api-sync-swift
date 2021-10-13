@@ -21,6 +21,7 @@ public struct TimesheetSyncApi {
 
     public static let version = "1.0"
 
+    public enum Billing {}
     public enum Device {}
     public enum Profile {}
     public enum Synchronisation {}

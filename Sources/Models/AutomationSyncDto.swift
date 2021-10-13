@@ -7,6 +7,8 @@ import Foundation
 
 public class AutomationSyncDto: APIModel {
 
+    public var action: Int?
+
     public var address: String?
 
     public var beaconUUID: String?
@@ -33,13 +35,12 @@ public class AutomationSyncDto: APIModel {
 
     public var ssid: String?
 
-    public var trigger: Int?
-
-    public var type: Int?
+    public var typeId: Int?
 
     public var user: String?
 
-    public init(address: String? = nil, beaconUUID: String? = nil, created: Int? = nil, deleted: Bool? = nil, enabled: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, projectId: String? = nil, radius: Float? = nil, shared: Bool? = nil, ssid: String? = nil, trigger: Int? = nil, type: Int? = nil, user: String? = nil) {
+    public init(action: Int? = nil, address: String? = nil, beaconUUID: String? = nil, created: Int? = nil, deleted: Bool? = nil, enabled: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, projectId: String? = nil, radius: Float? = nil, shared: Bool? = nil, ssid: String? = nil, typeId: Int? = nil, user: String? = nil) {
+        self.action = action
         self.address = address
         self.beaconUUID = beaconUUID
         self.created = created
@@ -53,14 +54,14 @@ public class AutomationSyncDto: APIModel {
         self.radius = radius
         self.shared = shared
         self.ssid = ssid
-        self.trigger = trigger
-        self.type = type
+        self.typeId = typeId
         self.user = user
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StringCodingKey.self)
 
+        action = try container.decodeIfPresent("action")
         address = try container.decodeIfPresent("address")
         beaconUUID = try container.decodeIfPresent("beaconUUID")
         created = try container.decodeIfPresent("created")
@@ -74,14 +75,14 @@ public class AutomationSyncDto: APIModel {
         radius = try container.decodeIfPresent("radius")
         shared = try container.decodeIfPresent("shared")
         ssid = try container.decodeIfPresent("ssid")
-        trigger = try container.decodeIfPresent("trigger")
-        type = try container.decodeIfPresent("type")
+        typeId = try container.decodeIfPresent("typeId")
         user = try container.decodeIfPresent("user")
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 
+        try container.encodeIfPresent(action, forKey: "action")
         try container.encodeIfPresent(address, forKey: "address")
         try container.encodeIfPresent(beaconUUID, forKey: "beaconUUID")
         try container.encodeIfPresent(created, forKey: "created")
@@ -95,13 +96,13 @@ public class AutomationSyncDto: APIModel {
         try container.encodeIfPresent(radius, forKey: "radius")
         try container.encodeIfPresent(shared, forKey: "shared")
         try container.encodeIfPresent(ssid, forKey: "ssid")
-        try container.encodeIfPresent(trigger, forKey: "trigger")
-        try container.encodeIfPresent(type, forKey: "type")
+        try container.encodeIfPresent(typeId, forKey: "typeId")
         try container.encodeIfPresent(user, forKey: "user")
     }
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? AutomationSyncDto else { return false }
+      guard self.action == object.action else { return false }
       guard self.address == object.address else { return false }
       guard self.beaconUUID == object.beaconUUID else { return false }
       guard self.created == object.created else { return false }
@@ -115,8 +116,7 @@ public class AutomationSyncDto: APIModel {
       guard self.radius == object.radius else { return false }
       guard self.shared == object.shared else { return false }
       guard self.ssid == object.ssid else { return false }
-      guard self.trigger == object.trigger else { return false }
-      guard self.type == object.type else { return false }
+      guard self.typeId == object.typeId else { return false }
       guard self.user == object.user else { return false }
       return true
     }
