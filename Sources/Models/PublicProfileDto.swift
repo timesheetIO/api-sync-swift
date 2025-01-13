@@ -7,6 +7,12 @@ import Foundation
 
 public class PublicProfileDto: APIModel {
 
+    public var at: Bool?
+
+    public var eu: Bool?
+
+    public var uk: Bool?
+
     public var activated: Bool?
 
     public var activatedTeams: Bool?
@@ -37,6 +43,8 @@ public class PublicProfileDto: APIModel {
 
     public var email: String?
 
+    public var emailInvoice: String?
+
     public var eu: Bool?
 
     public var euCustomer: Bool?
@@ -46,6 +54,8 @@ public class PublicProfileDto: APIModel {
     public var expires: Int?
 
     public var firstname: String?
+
+    public var firstnameInvoice: String?
 
     public var gdprConsent: Bool?
 
@@ -59,6 +69,12 @@ public class PublicProfileDto: APIModel {
 
     public var invited: Bool?
 
+    public var invoiceEmail: String?
+
+    public var invoiceFirstname: String?
+
+    public var invoiceLastname: String?
+
     public var invoicePayment: Bool?
 
     public var language: String?
@@ -66,6 +82,8 @@ public class PublicProfileDto: APIModel {
     public var lastUpdate: Int?
 
     public var lastname: String?
+
+    public var lastnameInvoice: String?
 
     public var licenseHolder: Bool?
 
@@ -84,8 +102,6 @@ public class PublicProfileDto: APIModel {
     public var payPalPayment: Bool?
 
     public var paymentOption: String?
-
-    public var pending: Bool?
 
     public var permission: Int?
 
@@ -131,7 +147,10 @@ public class PublicProfileDto: APIModel {
 
     public var zip: String?
 
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryIso: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, pending: Bool? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+    public init(at: Bool? = nil, eu: Bool? = nil, uk: Bool? = nil, activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryIso: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, emailInvoice: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, firstnameInvoice: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoiceEmail: String? = nil, invoiceFirstname: String? = nil, invoiceLastname: String? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, lastnameInvoice: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+        self.at = at
+        self.eu = eu
+        self.uk = uk
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.active = active
@@ -147,21 +166,27 @@ public class PublicProfileDto: APIModel {
         self.currency = currency
         self.displayName = displayName
         self.email = email
+        self.emailInvoice = emailInvoice
         self.eu = eu
         self.euCustomer = euCustomer
         self.expired = expired
         self.expires = expires
         self.firstname = firstname
+        self.firstnameInvoice = firstnameInvoice
         self.gdprConsent = gdprConsent
         self.imageUrl = imageUrl
         self.inactive = inactive
         self.includeTaxForBusiness = includeTaxForBusiness
         self.initials = initials
         self.invited = invited
+        self.invoiceEmail = invoiceEmail
+        self.invoiceFirstname = invoiceFirstname
+        self.invoiceLastname = invoiceLastname
         self.invoicePayment = invoicePayment
         self.language = language
         self.lastUpdate = lastUpdate
         self.lastname = lastname
+        self.lastnameInvoice = lastnameInvoice
         self.licenseHolder = licenseHolder
         self.licenseQuantity = licenseQuantity
         self.member = member
@@ -171,7 +196,6 @@ public class PublicProfileDto: APIModel {
         self.newsletter = newsletter
         self.payPalPayment = payPalPayment
         self.paymentOption = paymentOption
-        self.pending = pending
         self.permission = permission
         self.plan = plan
         self.plus = plus
@@ -199,6 +223,9 @@ public class PublicProfileDto: APIModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StringCodingKey.self)
 
+        at = try container.decodeIfPresent("AT")
+        eu = try container.decodeIfPresent("EU")
+        uk = try container.decodeIfPresent("UK")
         activated = try container.decodeIfPresent("activated")
         activatedTeams = try container.decodeIfPresent("activatedTeams")
         active = try container.decodeIfPresent("active")
@@ -214,21 +241,27 @@ public class PublicProfileDto: APIModel {
         currency = try container.decodeIfPresent("currency")
         displayName = try container.decodeIfPresent("displayName")
         email = try container.decodeIfPresent("email")
+        emailInvoice = try container.decodeIfPresent("emailInvoice")
         eu = try container.decodeIfPresent("eu")
         euCustomer = try container.decodeIfPresent("euCustomer")
         expired = try container.decodeIfPresent("expired")
         expires = try container.decodeIfPresent("expires")
         firstname = try container.decodeIfPresent("firstname")
+        firstnameInvoice = try container.decodeIfPresent("firstnameInvoice")
         gdprConsent = try container.decodeIfPresent("gdprConsent")
         imageUrl = try container.decodeIfPresent("imageUrl")
         inactive = try container.decodeIfPresent("inactive")
         includeTaxForBusiness = try container.decodeIfPresent("includeTaxForBusiness")
         initials = try container.decodeIfPresent("initials")
         invited = try container.decodeIfPresent("invited")
+        invoiceEmail = try container.decodeIfPresent("invoiceEmail")
+        invoiceFirstname = try container.decodeIfPresent("invoiceFirstname")
+        invoiceLastname = try container.decodeIfPresent("invoiceLastname")
         invoicePayment = try container.decodeIfPresent("invoicePayment")
         language = try container.decodeIfPresent("language")
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         lastname = try container.decodeIfPresent("lastname")
+        lastnameInvoice = try container.decodeIfPresent("lastnameInvoice")
         licenseHolder = try container.decodeIfPresent("licenseHolder")
         licenseQuantity = try container.decodeIfPresent("licenseQuantity")
         member = try container.decodeIfPresent("member")
@@ -238,7 +271,6 @@ public class PublicProfileDto: APIModel {
         newsletter = try container.decodeIfPresent("newsletter")
         payPalPayment = try container.decodeIfPresent("payPalPayment")
         paymentOption = try container.decodeIfPresent("paymentOption")
-        pending = try container.decodeIfPresent("pending")
         permission = try container.decodeIfPresent("permission")
         plan = try container.decodeIfPresent("plan")
         plus = try container.decodeIfPresent("plus")
@@ -266,6 +298,9 @@ public class PublicProfileDto: APIModel {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 
+        try container.encodeIfPresent(at, forKey: "AT")
+        try container.encodeIfPresent(eu, forKey: "EU")
+        try container.encodeIfPresent(uk, forKey: "UK")
         try container.encodeIfPresent(activated, forKey: "activated")
         try container.encodeIfPresent(activatedTeams, forKey: "activatedTeams")
         try container.encodeIfPresent(active, forKey: "active")
@@ -281,21 +316,27 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(currency, forKey: "currency")
         try container.encodeIfPresent(displayName, forKey: "displayName")
         try container.encodeIfPresent(email, forKey: "email")
+        try container.encodeIfPresent(emailInvoice, forKey: "emailInvoice")
         try container.encodeIfPresent(eu, forKey: "eu")
         try container.encodeIfPresent(euCustomer, forKey: "euCustomer")
         try container.encodeIfPresent(expired, forKey: "expired")
         try container.encodeIfPresent(expires, forKey: "expires")
         try container.encodeIfPresent(firstname, forKey: "firstname")
+        try container.encodeIfPresent(firstnameInvoice, forKey: "firstnameInvoice")
         try container.encodeIfPresent(gdprConsent, forKey: "gdprConsent")
         try container.encodeIfPresent(imageUrl, forKey: "imageUrl")
         try container.encodeIfPresent(inactive, forKey: "inactive")
         try container.encodeIfPresent(includeTaxForBusiness, forKey: "includeTaxForBusiness")
         try container.encodeIfPresent(initials, forKey: "initials")
         try container.encodeIfPresent(invited, forKey: "invited")
+        try container.encodeIfPresent(invoiceEmail, forKey: "invoiceEmail")
+        try container.encodeIfPresent(invoiceFirstname, forKey: "invoiceFirstname")
+        try container.encodeIfPresent(invoiceLastname, forKey: "invoiceLastname")
         try container.encodeIfPresent(invoicePayment, forKey: "invoicePayment")
         try container.encodeIfPresent(language, forKey: "language")
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(lastname, forKey: "lastname")
+        try container.encodeIfPresent(lastnameInvoice, forKey: "lastnameInvoice")
         try container.encodeIfPresent(licenseHolder, forKey: "licenseHolder")
         try container.encodeIfPresent(licenseQuantity, forKey: "licenseQuantity")
         try container.encodeIfPresent(member, forKey: "member")
@@ -305,7 +346,6 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(newsletter, forKey: "newsletter")
         try container.encodeIfPresent(payPalPayment, forKey: "payPalPayment")
         try container.encodeIfPresent(paymentOption, forKey: "paymentOption")
-        try container.encodeIfPresent(pending, forKey: "pending")
         try container.encodeIfPresent(permission, forKey: "permission")
         try container.encodeIfPresent(plan, forKey: "plan")
         try container.encodeIfPresent(plus, forKey: "plus")
@@ -332,6 +372,9 @@ public class PublicProfileDto: APIModel {
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? PublicProfileDto else { return false }
+      guard self.at == object.at else { return false }
+      guard self.eu == object.eu else { return false }
+      guard self.uk == object.uk else { return false }
       guard self.activated == object.activated else { return false }
       guard self.activatedTeams == object.activatedTeams else { return false }
       guard self.active == object.active else { return false }
@@ -347,21 +390,27 @@ public class PublicProfileDto: APIModel {
       guard self.currency == object.currency else { return false }
       guard self.displayName == object.displayName else { return false }
       guard self.email == object.email else { return false }
+      guard self.emailInvoice == object.emailInvoice else { return false }
       guard self.eu == object.eu else { return false }
       guard self.euCustomer == object.euCustomer else { return false }
       guard self.expired == object.expired else { return false }
       guard self.expires == object.expires else { return false }
       guard self.firstname == object.firstname else { return false }
+      guard self.firstnameInvoice == object.firstnameInvoice else { return false }
       guard self.gdprConsent == object.gdprConsent else { return false }
       guard self.imageUrl == object.imageUrl else { return false }
       guard self.inactive == object.inactive else { return false }
       guard self.includeTaxForBusiness == object.includeTaxForBusiness else { return false }
       guard self.initials == object.initials else { return false }
       guard self.invited == object.invited else { return false }
+      guard self.invoiceEmail == object.invoiceEmail else { return false }
+      guard self.invoiceFirstname == object.invoiceFirstname else { return false }
+      guard self.invoiceLastname == object.invoiceLastname else { return false }
       guard self.invoicePayment == object.invoicePayment else { return false }
       guard self.language == object.language else { return false }
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.lastname == object.lastname else { return false }
+      guard self.lastnameInvoice == object.lastnameInvoice else { return false }
       guard self.licenseHolder == object.licenseHolder else { return false }
       guard self.licenseQuantity == object.licenseQuantity else { return false }
       guard self.member == object.member else { return false }
@@ -371,7 +420,6 @@ public class PublicProfileDto: APIModel {
       guard self.newsletter == object.newsletter else { return false }
       guard self.payPalPayment == object.payPalPayment else { return false }
       guard self.paymentOption == object.paymentOption else { return false }
-      guard self.pending == object.pending else { return false }
       guard self.permission == object.permission else { return false }
       guard self.plan == object.plan else { return false }
       guard self.plus == object.plus else { return false }

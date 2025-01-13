@@ -5,34 +5,39 @@
 
 import Foundation
 
-extension TimesheetSyncApi.Billing {
+extension TimesheetSyncApi.Settings {
 
     /**
-    Start Trial Period
+    Update settings
 
-    Start a trial period for the user.
+    Update settings of current user.
     */
-    public enum StartTrial {
+    public enum Update {
 
-        public static let service = APIService<Response>(id: "startTrial", tag: "Billing", method: "POST", path: "/v1/billing/startTrial", hasBody: false)
+        public static let service = APIService<Response>(id: "update", tag: "Settings", method: "PUT", path: "/v1/settings", hasBody: true)
 
         public final class Request: APIRequest<Response> {
 
-            public init() {
-                super.init(service: StartTrial.service)
+            public var body: SettingsDto?
+
+            public init(body: SettingsDto?, encoder: RequestEncoder? = nil) {
+                self.body = body
+                super.init(service: Update.service) { defaultEncoder in
+                    return try (encoder ?? defaultEncoder).encode(body)
+                }
             }
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = PublicProfileDto
+            public typealias SuccessType = SettingsDto
 
-            /** Profile */
-            case status200(PublicProfileDto)
+            /** Settings of the User */
+            case status200(SettingsDto)
 
             /** Not authorized */
             case status401
 
-            public var success: PublicProfileDto? {
+            public var success: SettingsDto? {
                 switch self {
                 case .status200(let response): return response
                 default: return nil
@@ -62,7 +67,7 @@ extension TimesheetSyncApi.Billing {
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = try .status200(decoder.decode(PublicProfileDto.self, from: data))
+                case 200: self = try .status200(decoder.decode(SettingsDto.self, from: data))
                 case 401: self = .status401
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
                 }

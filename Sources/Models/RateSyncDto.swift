@@ -7,6 +7,8 @@ import Foundation
 
 public class RateSyncDto: APIModel {
 
+    public var archived: Bool?
+
     public var created: Int?
 
     public var deleted: Bool?
@@ -27,7 +29,8 @@ public class RateSyncDto: APIModel {
 
     public var user: String?
 
-    public init(created: Int? = nil, deleted: Bool? = nil, enabled: Bool? = nil, extra: Double? = nil, factor: Double? = nil, id: String? = nil, lastUpdate: Int? = nil, teamId: String? = nil, title: String? = nil, user: String? = nil) {
+    public init(archived: Bool? = nil, created: Int? = nil, deleted: Bool? = nil, enabled: Bool? = nil, extra: Double? = nil, factor: Double? = nil, id: String? = nil, lastUpdate: Int? = nil, teamId: String? = nil, title: String? = nil, user: String? = nil) {
+        self.archived = archived
         self.created = created
         self.deleted = deleted
         self.enabled = enabled
@@ -43,6 +46,7 @@ public class RateSyncDto: APIModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StringCodingKey.self)
 
+        archived = try container.decodeIfPresent("archived")
         created = try container.decodeIfPresent("created")
         deleted = try container.decodeIfPresent("deleted")
         enabled = try container.decodeIfPresent("enabled")
@@ -58,6 +62,7 @@ public class RateSyncDto: APIModel {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 
+        try container.encodeIfPresent(archived, forKey: "archived")
         try container.encodeIfPresent(created, forKey: "created")
         try container.encodeIfPresent(deleted, forKey: "deleted")
         try container.encodeIfPresent(enabled, forKey: "enabled")
@@ -72,6 +77,7 @@ public class RateSyncDto: APIModel {
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? RateSyncDto else { return false }
+      guard self.archived == object.archived else { return false }
       guard self.created == object.created else { return false }
       guard self.deleted == object.deleted else { return false }
       guard self.enabled == object.enabled else { return false }

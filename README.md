@@ -160,6 +160,7 @@ To add support for a specific asynchronous library, just add an extension on `AP
 - **ProjectSyncDto**
 - **PublicProfileDto**
 - **RateSyncDto**
+- **SettingsDto**
 - **SyncData**
 - **TagSyncDto**
 - **TaskSyncDto**
@@ -171,6 +172,8 @@ To add support for a specific asynchronous library, just add an extension on `AP
 
 ## Requests
 
+- **TimesheetSyncApi.Billing**
+	- **StartTrial**: POST `/v1/billing/starttrial`
 - **TimesheetSyncApi.Device**
 	- **RegisterDevice**: POST `/v1/devices`
 	- **SendSyncMessage**: POST `/v1/devices/sendsyncmessagetootherdevices/{regid}/{lastsync}`
@@ -178,6 +181,9 @@ To add support for a specific asynchronous library, just add an extension on `AP
 	- **UnregisterDevice**: DELETE `/v1/devices/{id}`
 - **TimesheetSyncApi.Profile**
 	- **Get**: GET `/v1/profiles/me`
+- **TimesheetSyncApi.Settings**
+	- **Get1**: GET `/v1/settings`
+	- **Update**: PUT `/v1/settings`
 - **TimesheetSyncApi.Synchronisation**
 	- **FinishedSyncData**: POST `/v1/sync/finishedsyncdata`
 	- **GetAutomationSyncData**: GET `/v1/sync/getautomationsyncdata`

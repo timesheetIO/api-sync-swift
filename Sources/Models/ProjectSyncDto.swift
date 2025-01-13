@@ -27,6 +27,8 @@ public class ProjectSyncDto: APIModel {
 
     public var salary: Double?
 
+    public var salaryVisibility: Int?
+
     public var taskDefaultBillable: Bool?
 
     public var taskDefaultRateId: String?
@@ -37,7 +39,7 @@ public class ProjectSyncDto: APIModel {
 
     public var user: String?
 
-    public init(archived: Bool? = nil, color: Int? = nil, created: Int? = nil, deleted: Bool? = nil, description: String? = nil, employer: String? = nil, id: String? = nil, lastUpdate: Int? = nil, office: String? = nil, salary: Double? = nil, taskDefaultBillable: Bool? = nil, taskDefaultRateId: String? = nil, teamId: String? = nil, title: String? = nil, user: String? = nil) {
+    public init(archived: Bool? = nil, color: Int? = nil, created: Int? = nil, deleted: Bool? = nil, description: String? = nil, employer: String? = nil, id: String? = nil, lastUpdate: Int? = nil, office: String? = nil, salary: Double? = nil, salaryVisibility: Int? = nil, taskDefaultBillable: Bool? = nil, taskDefaultRateId: String? = nil, teamId: String? = nil, title: String? = nil, user: String? = nil) {
         self.archived = archived
         self.color = color
         self.created = created
@@ -48,6 +50,7 @@ public class ProjectSyncDto: APIModel {
         self.lastUpdate = lastUpdate
         self.office = office
         self.salary = salary
+        self.salaryVisibility = salaryVisibility
         self.taskDefaultBillable = taskDefaultBillable
         self.taskDefaultRateId = taskDefaultRateId
         self.teamId = teamId
@@ -68,6 +71,7 @@ public class ProjectSyncDto: APIModel {
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         office = try container.decodeIfPresent("office")
         salary = try container.decodeIfPresent("salary")
+        salaryVisibility = try container.decodeIfPresent("salaryVisibility")
         taskDefaultBillable = try container.decodeIfPresent("taskDefaultBillable")
         taskDefaultRateId = try container.decodeIfPresent("taskDefaultRateId")
         teamId = try container.decodeIfPresent("teamId")
@@ -88,6 +92,7 @@ public class ProjectSyncDto: APIModel {
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(office, forKey: "office")
         try container.encodeIfPresent(salary, forKey: "salary")
+        try container.encodeIfPresent(salaryVisibility, forKey: "salaryVisibility")
         try container.encodeIfPresent(taskDefaultBillable, forKey: "taskDefaultBillable")
         try container.encodeIfPresent(taskDefaultRateId, forKey: "taskDefaultRateId")
         try container.encodeIfPresent(teamId, forKey: "teamId")
@@ -107,6 +112,7 @@ public class ProjectSyncDto: APIModel {
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.office == object.office else { return false }
       guard self.salary == object.salary else { return false }
+      guard self.salaryVisibility == object.salaryVisibility else { return false }
       guard self.taskDefaultBillable == object.taskDefaultBillable else { return false }
       guard self.taskDefaultRateId == object.taskDefaultRateId else { return false }
       guard self.teamId == object.teamId else { return false }

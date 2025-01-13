@@ -5,7 +5,7 @@
 
 import Foundation
 
-/** timehseet.io provides a REST API that can be accessed directly from another web application or from within a Javascript single page application. The API can be used from any programming language.
+/** timesheet.io provides a REST API that can be accessed directly from another web application or from within a Javascript single page application. The API can be used from any programming language.
 This API should be used if you want to synchronise data between your client and the server.
 Please email support@timesheet.io if you have questions or need help while using the API. */
 public struct TimesheetSyncApi {
@@ -24,6 +24,7 @@ public struct TimesheetSyncApi {
     public enum Billing {}
     public enum Device {}
     public enum Profile {}
+    public enum Settings {}
     public enum Synchronisation {}
 
     public enum Server {

@@ -23,9 +23,11 @@ public class TeamSyncDto: APIModel {
 
     public var name: String?
 
+    public var projectSalaryVisibility: Int?
+
     public var user: String?
 
-    public init(color: Int? = nil, created: Int? = nil, deleted: Bool? = nil, description: String? = nil, id: String? = nil, image: String? = nil, lastUpdate: Int? = nil, name: String? = nil, user: String? = nil) {
+    public init(color: Int? = nil, created: Int? = nil, deleted: Bool? = nil, description: String? = nil, id: String? = nil, image: String? = nil, lastUpdate: Int? = nil, name: String? = nil, projectSalaryVisibility: Int? = nil, user: String? = nil) {
         self.color = color
         self.created = created
         self.deleted = deleted
@@ -34,6 +36,7 @@ public class TeamSyncDto: APIModel {
         self.image = image
         self.lastUpdate = lastUpdate
         self.name = name
+        self.projectSalaryVisibility = projectSalaryVisibility
         self.user = user
     }
 
@@ -48,6 +51,7 @@ public class TeamSyncDto: APIModel {
         image = try container.decodeIfPresent("image")
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         name = try container.decodeIfPresent("name")
+        projectSalaryVisibility = try container.decodeIfPresent("projectSalaryVisibility")
         user = try container.decodeIfPresent("user")
     }
 
@@ -62,6 +66,7 @@ public class TeamSyncDto: APIModel {
         try container.encodeIfPresent(image, forKey: "image")
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(name, forKey: "name")
+        try container.encodeIfPresent(projectSalaryVisibility, forKey: "projectSalaryVisibility")
         try container.encodeIfPresent(user, forKey: "user")
     }
 
@@ -75,6 +80,7 @@ public class TeamSyncDto: APIModel {
       guard self.image == object.image else { return false }
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.name == object.name else { return false }
+      guard self.projectSalaryVisibility == object.projectSalaryVisibility else { return false }
       guard self.user == object.user else { return false }
       return true
     }

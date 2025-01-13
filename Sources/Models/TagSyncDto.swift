@@ -7,6 +7,8 @@ import Foundation
 
 public class TagSyncDto: APIModel {
 
+    public var archived: Bool?
+
     public var color: Int?
 
     public var created: Int?
@@ -23,7 +25,8 @@ public class TagSyncDto: APIModel {
 
     public var user: String?
 
-    public init(color: Int? = nil, created: Int? = nil, deleted: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, name: String? = nil, teamId: String? = nil, user: String? = nil) {
+    public init(archived: Bool? = nil, color: Int? = nil, created: Int? = nil, deleted: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, name: String? = nil, teamId: String? = nil, user: String? = nil) {
+        self.archived = archived
         self.color = color
         self.created = created
         self.deleted = deleted
@@ -37,6 +40,7 @@ public class TagSyncDto: APIModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StringCodingKey.self)
 
+        archived = try container.decodeIfPresent("archived")
         color = try container.decodeIfPresent("color")
         created = try container.decodeIfPresent("created")
         deleted = try container.decodeIfPresent("deleted")
@@ -50,6 +54,7 @@ public class TagSyncDto: APIModel {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 
+        try container.encodeIfPresent(archived, forKey: "archived")
         try container.encodeIfPresent(color, forKey: "color")
         try container.encodeIfPresent(created, forKey: "created")
         try container.encodeIfPresent(deleted, forKey: "deleted")
@@ -62,6 +67,7 @@ public class TagSyncDto: APIModel {
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? TagSyncDto else { return false }
+      guard self.archived == object.archived else { return false }
       guard self.color == object.color else { return false }
       guard self.created == object.created else { return false }
       guard self.deleted == object.deleted else { return false }
