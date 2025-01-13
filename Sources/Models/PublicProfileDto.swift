@@ -7,12 +7,6 @@ import Foundation
 
 public class PublicProfileDto: APIModel {
 
-    public var at: Bool?
-
-    public var eu: Bool?
-
-    public var uk: Bool?
-
     public var activated: Bool?
 
     public var activatedTeams: Bool?
