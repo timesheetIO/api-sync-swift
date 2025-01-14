@@ -7,12 +7,6 @@ import Foundation
 
 public class PublicProfileDto: APIModel {
 
-    public var at: Bool?
-
-    public var eu: Bool?
-
-    public var uk: Bool?
-
     public var activated: Bool?
 
     public var activatedTeams: Bool?
@@ -147,10 +141,7 @@ public class PublicProfileDto: APIModel {
 
     public var zip: String?
 
-    public init(at: Bool? = nil, eu: Bool? = nil, uk: Bool? = nil, activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryIso: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, emailInvoice: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, firstnameInvoice: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoiceEmail: String? = nil, invoiceFirstname: String? = nil, invoiceLastname: String? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, lastnameInvoice: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
-        self.at = at
-        self.eu = eu
-        self.uk = uk
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryIso: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, emailInvoice: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, firstnameInvoice: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoiceEmail: String? = nil, invoiceFirstname: String? = nil, invoiceLastname: String? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, lastnameInvoice: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.active = active
@@ -223,9 +214,6 @@ public class PublicProfileDto: APIModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StringCodingKey.self)
 
-        at = try container.decodeIfPresent("AT")
-        eu = try container.decodeIfPresent("EU")
-        uk = try container.decodeIfPresent("UK")
         activated = try container.decodeIfPresent("activated")
         activatedTeams = try container.decodeIfPresent("activatedTeams")
         active = try container.decodeIfPresent("active")
@@ -298,9 +286,6 @@ public class PublicProfileDto: APIModel {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 
-        try container.encodeIfPresent(at, forKey: "AT")
-        try container.encodeIfPresent(eu, forKey: "EU")
-        try container.encodeIfPresent(uk, forKey: "UK")
         try container.encodeIfPresent(activated, forKey: "activated")
         try container.encodeIfPresent(activatedTeams, forKey: "activatedTeams")
         try container.encodeIfPresent(active, forKey: "active")
@@ -372,9 +357,6 @@ public class PublicProfileDto: APIModel {
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? PublicProfileDto else { return false }
-      guard self.at == object.at else { return false }
-      guard self.eu == object.eu else { return false }
-      guard self.uk == object.uk else { return false }
       guard self.activated == object.activated else { return false }
       guard self.activatedTeams == object.activatedTeams else { return false }
       guard self.active == object.active else { return false }
