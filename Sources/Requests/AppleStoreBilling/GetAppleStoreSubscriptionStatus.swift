@@ -24,10 +24,10 @@ extension TimesheetSyncApi.AppleStoreBilling {
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = SubscriptionStatusResponse
+            public typealias SuccessType = AppleSubscriptionStatusResponse
 
             /** Subscription status retrieved */
-            case status200(SubscriptionStatusResponse)
+            case status200(AppleSubscriptionStatusResponse)
 
             /** User not authorized or not registered */
             case status401
@@ -35,7 +35,7 @@ extension TimesheetSyncApi.AppleStoreBilling {
             /** No Apple App Store subscription found for user */
             case status404
 
-            public var success: SubscriptionStatusResponse? {
+            public var success: AppleSubscriptionStatusResponse? {
                 switch self {
                 case .status200(let response): return response
                 default: return nil
@@ -67,7 +67,7 @@ extension TimesheetSyncApi.AppleStoreBilling {
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = try .status200(decoder.decode(SubscriptionStatusResponse.self, from: data))
+                case 200: self = try .status200(decoder.decode(AppleSubscriptionStatusResponse.self, from: data))
                 case 401: self = .status401
                 case 404: self = .status404
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)

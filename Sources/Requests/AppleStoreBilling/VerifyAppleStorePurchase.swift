@@ -18,9 +18,9 @@ extension TimesheetSyncApi.AppleStoreBilling {
 
         public final class Request: APIRequest<Response> {
 
-            public var body: VerifyPurchaseRequest?
+            public var body: AppleVerifyPurchaseRequest?
 
-            public init(body: VerifyPurchaseRequest?, encoder: RequestEncoder? = nil) {
+            public init(body: AppleVerifyPurchaseRequest?, encoder: RequestEncoder? = nil) {
                 self.body = body
                 super.init(service: VerifyAppleStorePurchase.service) { defaultEncoder in
                     return try (encoder ?? defaultEncoder).encode(body)
@@ -29,10 +29,10 @@ extension TimesheetSyncApi.AppleStoreBilling {
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = VerificationResponse
+            public typealias SuccessType = AppleVerificationResponse
 
             /** Verification result */
-            case status200(VerificationResponse)
+            case status200(AppleVerificationResponse)
 
             /** Invalid purchase data or missing required parameters */
             case status400
@@ -40,7 +40,7 @@ extension TimesheetSyncApi.AppleStoreBilling {
             /** User not authorized or not registered */
             case status401
 
-            public var success: VerificationResponse? {
+            public var success: AppleVerificationResponse? {
                 switch self {
                 case .status200(let response): return response
                 default: return nil
@@ -72,7 +72,7 @@ extension TimesheetSyncApi.AppleStoreBilling {
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = try .status200(decoder.decode(VerificationResponse.self, from: data))
+                case 200: self = try .status200(decoder.decode(AppleVerificationResponse.self, from: data))
                 case 400: self = .status400
                 case 401: self = .status401
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
