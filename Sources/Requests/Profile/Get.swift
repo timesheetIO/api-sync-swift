@@ -8,22 +8,27 @@ import Foundation
 extension TimesheetSyncApi.Profile {
 
     /**
-    Get profile
+    Get current user profile
 
-    Get the profile of the current user.
+    Retrieves the profile information of the authenticated user. This is typically called upon login to get user details and subscription status.
     */
     public enum Get {
 
-        public static let service = APIService<Response>(id: "get", tag: "Profile", method: "GET", path: "/v1/profiles/me", hasBody: false)
+        public static let service = APIService<Response>(id: "get", tag: "Profile", method: "GET", path: "/v1/profiles/me", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 
             public struct Options {
 
+                /** The referrer URL where the user came from, used for analytics */
                 public var referrer: String?
 
-                public init(referrer: String? = nil) {
+                /** Controls whether to include newsletter subscription status in the response or update subscription preference */
+                public var newsletter: Bool?
+
+                public init(referrer: String? = nil, newsletter: Bool? = nil) {
                     self.referrer = referrer
+                    self.newsletter = newsletter
                 }
             }
 
@@ -35,8 +40,8 @@ extension TimesheetSyncApi.Profile {
             }
 
             /// convenience initialiser so an Option doesn't have to be created
-            public convenience init(referrer: String? = nil) {
-                let options = Options(referrer: referrer)
+            public convenience init(referrer: String? = nil, newsletter: Bool? = nil) {
+                let options = Options(referrer: referrer, newsletter: newsletter)
                 self.init(options: options)
             }
 
@@ -45,6 +50,9 @@ extension TimesheetSyncApi.Profile {
                 if let referrer = options.referrer {
                   params["referrer"] = referrer
                 }
+                if let newsletter = options.newsletter {
+                  params["newsletter"] = newsletter
+                }
                 return params
             }
         }
@@ -52,11 +60,14 @@ extension TimesheetSyncApi.Profile {
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
             public typealias SuccessType = PublicProfileDto
 
-            /** Returns Profile of the User */
+            /** Profile retrieved successfully */
             case status200(PublicProfileDto)
 
-            /** Not authorized */
+            /** User is not authorized to access this endpoint */
             case status401
+
+            /** Internal server error */
+            case status500
 
             public var success: PublicProfileDto? {
                 switch self {
@@ -76,6 +87,7 @@ extension TimesheetSyncApi.Profile {
                 switch self {
                 case .status200: return 200
                 case .status401: return 401
+                case .status500: return 500
                 }
             }
 
@@ -83,6 +95,7 @@ extension TimesheetSyncApi.Profile {
                 switch self {
                 case .status200: return true
                 case .status401: return false
+                case .status500: return false
                 }
             }
 
@@ -90,6 +103,7 @@ extension TimesheetSyncApi.Profile {
                 switch statusCode {
                 case 200: self = try .status200(decoder.decode(PublicProfileDto.self, from: data))
                 case 401: self = .status401
+                case 500: self = .status500
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
                 }
             }

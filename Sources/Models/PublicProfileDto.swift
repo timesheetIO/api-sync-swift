@@ -11,37 +11,21 @@ public class PublicProfileDto: APIModel {
 
     public var activatedTeams: Bool?
 
-    public var active: Bool?
-
     public var admin: Bool?
 
-    public var at: Bool?
-
     public var basic: Bool?
-
-    public var business: String?
-
-    public var businessCustomer: Bool?
-
-    public var cancellationOffer: Bool?
-
-    public var city: String?
 
     public var country: String?
 
     public var countryIso: String?
 
-    public var currency: String?
+    public var createdAt: DateTime?
+
+    public var deleted: Bool?
 
     public var displayName: String?
 
     public var email: String?
-
-    public var emailInvoice: String?
-
-    public var eu: Bool?
-
-    public var euCustomer: Bool?
 
     public var expired: Bool?
 
@@ -49,27 +33,15 @@ public class PublicProfileDto: APIModel {
 
     public var firstname: String?
 
-    public var firstnameInvoice: String?
-
     public var gdprConsent: Bool?
 
     public var imageUrl: String?
-
-    public var inactive: Bool?
-
-    public var includeTaxForBusiness: Bool?
 
     public var initials: String?
 
     public var invited: Bool?
 
-    public var invoiceEmail: String?
-
-    public var invoiceFirstname: String?
-
-    public var invoiceLastname: String?
-
-    public var invoicePayment: Bool?
+    public var ipAddress: String?
 
     public var language: String?
 
@@ -77,29 +49,27 @@ public class PublicProfileDto: APIModel {
 
     public var lastname: String?
 
-    public var lastnameInvoice: String?
-
-    public var licenseHolder: Bool?
-
-    public var licenseQuantity: Int?
-
     public var member: Bool?
-
-    public var members: Int?
-
-    public var monthly: Bool?
 
     public var needsSetup: Bool?
 
     public var newsletter: Bool?
 
-    public var payPalPayment: Bool?
-
-    public var paymentOption: String?
+    public var organizationSubscriptionActive: Bool?
 
     public var permission: Int?
 
+    public var personalSubscriptionActive: Bool?
+
     public var plan: Int?
+
+    public var planBasic: Bool?
+
+    public var planBusiness: Bool?
+
+    public var planPlus: Bool?
+
+    public var planPro: Bool?
 
     public var plus: Bool?
 
@@ -109,25 +79,11 @@ public class PublicProfileDto: APIModel {
 
     public var referrer: String?
 
-    public var state: String?
-
     public var status: Int?
 
-    public var street: String?
-
-    public var stripePayment: Bool?
-
-    public var subscriptionActive: Bool?
-
-    public var subscriptionCancelled: Bool?
-
-    public var subscriptionInactive: Bool?
-
-    public var taxId: String?
+    public var subscriptionId: String?
 
     public var trial: Bool?
-
-    public var uk: Bool?
 
     public var user: String?
 
@@ -137,78 +93,50 @@ public class PublicProfileDto: APIModel {
 
     public var validProfile: Bool?
 
-    public var yearly: Bool?
-
-    public var zip: String?
-
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, active: Bool? = nil, admin: Bool? = nil, at: Bool? = nil, basic: Bool? = nil, business: String? = nil, businessCustomer: Bool? = nil, cancellationOffer: Bool? = nil, city: String? = nil, country: String? = nil, countryIso: String? = nil, currency: String? = nil, displayName: String? = nil, email: String? = nil, emailInvoice: String? = nil, eu: Bool? = nil, euCustomer: Bool? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, firstnameInvoice: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, inactive: Bool? = nil, includeTaxForBusiness: Bool? = nil, initials: String? = nil, invited: Bool? = nil, invoiceEmail: String? = nil, invoiceFirstname: String? = nil, invoiceLastname: String? = nil, invoicePayment: Bool? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, lastnameInvoice: String? = nil, licenseHolder: Bool? = nil, licenseQuantity: Int? = nil, member: Bool? = nil, members: Int? = nil, monthly: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, payPalPayment: Bool? = nil, paymentOption: String? = nil, permission: Int? = nil, plan: Int? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, state: String? = nil, status: Int? = nil, street: String? = nil, stripePayment: Bool? = nil, subscriptionActive: Bool? = nil, subscriptionCancelled: Bool? = nil, subscriptionInactive: Bool? = nil, taxId: String? = nil, trial: Bool? = nil, uk: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil, yearly: Bool? = nil, zip: String? = nil) {
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, admin: Bool? = nil, basic: Bool? = nil, country: String? = nil, countryIso: String? = nil, createdAt: DateTime? = nil, deleted: Bool? = nil, displayName: String? = nil, email: String? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, initials: String? = nil, invited: Bool? = nil, ipAddress: String? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, member: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, organizationSubscriptionActive: Bool? = nil, permission: Int? = nil, personalSubscriptionActive: Bool? = nil, plan: Int? = nil, planBasic: Bool? = nil, planBusiness: Bool? = nil, planPlus: Bool? = nil, planPro: Bool? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, status: Int? = nil, subscriptionId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
-        self.active = active
         self.admin = admin
-        self.at = at
         self.basic = basic
-        self.business = business
-        self.businessCustomer = businessCustomer
-        self.cancellationOffer = cancellationOffer
-        self.city = city
         self.country = country
         self.countryIso = countryIso
-        self.currency = currency
+        self.createdAt = createdAt
+        self.deleted = deleted
         self.displayName = displayName
         self.email = email
-        self.emailInvoice = emailInvoice
-        self.eu = eu
-        self.euCustomer = euCustomer
         self.expired = expired
         self.expires = expires
         self.firstname = firstname
-        self.firstnameInvoice = firstnameInvoice
         self.gdprConsent = gdprConsent
         self.imageUrl = imageUrl
-        self.inactive = inactive
-        self.includeTaxForBusiness = includeTaxForBusiness
         self.initials = initials
         self.invited = invited
-        self.invoiceEmail = invoiceEmail
-        self.invoiceFirstname = invoiceFirstname
-        self.invoiceLastname = invoiceLastname
-        self.invoicePayment = invoicePayment
+        self.ipAddress = ipAddress
         self.language = language
         self.lastUpdate = lastUpdate
         self.lastname = lastname
-        self.lastnameInvoice = lastnameInvoice
-        self.licenseHolder = licenseHolder
-        self.licenseQuantity = licenseQuantity
         self.member = member
-        self.members = members
-        self.monthly = monthly
         self.needsSetup = needsSetup
         self.newsletter = newsletter
-        self.payPalPayment = payPalPayment
-        self.paymentOption = paymentOption
+        self.organizationSubscriptionActive = organizationSubscriptionActive
         self.permission = permission
+        self.personalSubscriptionActive = personalSubscriptionActive
         self.plan = plan
+        self.planBasic = planBasic
+        self.planBusiness = planBusiness
+        self.planPlus = planPlus
+        self.planPro = planPro
         self.plus = plus
         self.pro = pro
         self.product = product
         self.referrer = referrer
-        self.state = state
         self.status = status
-        self.street = street
-        self.stripePayment = stripePayment
-        self.subscriptionActive = subscriptionActive
-        self.subscriptionCancelled = subscriptionCancelled
-        self.subscriptionInactive = subscriptionInactive
-        self.taxId = taxId
+        self.subscriptionId = subscriptionId
         self.trial = trial
-        self.uk = uk
         self.user = user
         self.valid = valid
         self.validAndActivated = validAndActivated
         self.validProfile = validProfile
-        self.yearly = yearly
-        self.zip = zip
     }
 
     public required init(from decoder: Decoder) throws {
@@ -216,71 +144,47 @@ public class PublicProfileDto: APIModel {
 
         activated = try container.decodeIfPresent("activated")
         activatedTeams = try container.decodeIfPresent("activatedTeams")
-        active = try container.decodeIfPresent("active")
         admin = try container.decodeIfPresent("admin")
-        at = try container.decodeIfPresent("at")
         basic = try container.decodeIfPresent("basic")
-        business = try container.decodeIfPresent("business")
-        businessCustomer = try container.decodeIfPresent("businessCustomer")
-        cancellationOffer = try container.decodeIfPresent("cancellationOffer")
-        city = try container.decodeIfPresent("city")
         country = try container.decodeIfPresent("country")
         countryIso = try container.decodeIfPresent("countryIso")
-        currency = try container.decodeIfPresent("currency")
+        createdAt = try container.decodeIfPresent("createdAt")
+        deleted = try container.decodeIfPresent("deleted")
         displayName = try container.decodeIfPresent("displayName")
         email = try container.decodeIfPresent("email")
-        emailInvoice = try container.decodeIfPresent("emailInvoice")
-        eu = try container.decodeIfPresent("eu")
-        euCustomer = try container.decodeIfPresent("euCustomer")
         expired = try container.decodeIfPresent("expired")
         expires = try container.decodeIfPresent("expires")
         firstname = try container.decodeIfPresent("firstname")
-        firstnameInvoice = try container.decodeIfPresent("firstnameInvoice")
         gdprConsent = try container.decodeIfPresent("gdprConsent")
         imageUrl = try container.decodeIfPresent("imageUrl")
-        inactive = try container.decodeIfPresent("inactive")
-        includeTaxForBusiness = try container.decodeIfPresent("includeTaxForBusiness")
         initials = try container.decodeIfPresent("initials")
         invited = try container.decodeIfPresent("invited")
-        invoiceEmail = try container.decodeIfPresent("invoiceEmail")
-        invoiceFirstname = try container.decodeIfPresent("invoiceFirstname")
-        invoiceLastname = try container.decodeIfPresent("invoiceLastname")
-        invoicePayment = try container.decodeIfPresent("invoicePayment")
+        ipAddress = try container.decodeIfPresent("ipAddress")
         language = try container.decodeIfPresent("language")
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         lastname = try container.decodeIfPresent("lastname")
-        lastnameInvoice = try container.decodeIfPresent("lastnameInvoice")
-        licenseHolder = try container.decodeIfPresent("licenseHolder")
-        licenseQuantity = try container.decodeIfPresent("licenseQuantity")
         member = try container.decodeIfPresent("member")
-        members = try container.decodeIfPresent("members")
-        monthly = try container.decodeIfPresent("monthly")
         needsSetup = try container.decodeIfPresent("needsSetup")
         newsletter = try container.decodeIfPresent("newsletter")
-        payPalPayment = try container.decodeIfPresent("payPalPayment")
-        paymentOption = try container.decodeIfPresent("paymentOption")
+        organizationSubscriptionActive = try container.decodeIfPresent("organizationSubscriptionActive")
         permission = try container.decodeIfPresent("permission")
+        personalSubscriptionActive = try container.decodeIfPresent("personalSubscriptionActive")
         plan = try container.decodeIfPresent("plan")
+        planBasic = try container.decodeIfPresent("planBasic")
+        planBusiness = try container.decodeIfPresent("planBusiness")
+        planPlus = try container.decodeIfPresent("planPlus")
+        planPro = try container.decodeIfPresent("planPro")
         plus = try container.decodeIfPresent("plus")
         pro = try container.decodeIfPresent("pro")
         product = try container.decodeIfPresent("product")
         referrer = try container.decodeIfPresent("referrer")
-        state = try container.decodeIfPresent("state")
         status = try container.decodeIfPresent("status")
-        street = try container.decodeIfPresent("street")
-        stripePayment = try container.decodeIfPresent("stripePayment")
-        subscriptionActive = try container.decodeIfPresent("subscriptionActive")
-        subscriptionCancelled = try container.decodeIfPresent("subscriptionCancelled")
-        subscriptionInactive = try container.decodeIfPresent("subscriptionInactive")
-        taxId = try container.decodeIfPresent("taxId")
+        subscriptionId = try container.decodeIfPresent("subscriptionId")
         trial = try container.decodeIfPresent("trial")
-        uk = try container.decodeIfPresent("uk")
         user = try container.decodeIfPresent("user")
         valid = try container.decodeIfPresent("valid")
         validAndActivated = try container.decodeIfPresent("validAndActivated")
         validProfile = try container.decodeIfPresent("validProfile")
-        yearly = try container.decodeIfPresent("yearly")
-        zip = try container.decodeIfPresent("zip")
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -288,142 +192,94 @@ public class PublicProfileDto: APIModel {
 
         try container.encodeIfPresent(activated, forKey: "activated")
         try container.encodeIfPresent(activatedTeams, forKey: "activatedTeams")
-        try container.encodeIfPresent(active, forKey: "active")
         try container.encodeIfPresent(admin, forKey: "admin")
-        try container.encodeIfPresent(at, forKey: "at")
         try container.encodeIfPresent(basic, forKey: "basic")
-        try container.encodeIfPresent(business, forKey: "business")
-        try container.encodeIfPresent(businessCustomer, forKey: "businessCustomer")
-        try container.encodeIfPresent(cancellationOffer, forKey: "cancellationOffer")
-        try container.encodeIfPresent(city, forKey: "city")
         try container.encodeIfPresent(country, forKey: "country")
         try container.encodeIfPresent(countryIso, forKey: "countryIso")
-        try container.encodeIfPresent(currency, forKey: "currency")
+        try container.encodeIfPresent(createdAt, forKey: "createdAt")
+        try container.encodeIfPresent(deleted, forKey: "deleted")
         try container.encodeIfPresent(displayName, forKey: "displayName")
         try container.encodeIfPresent(email, forKey: "email")
-        try container.encodeIfPresent(emailInvoice, forKey: "emailInvoice")
-        try container.encodeIfPresent(eu, forKey: "eu")
-        try container.encodeIfPresent(euCustomer, forKey: "euCustomer")
         try container.encodeIfPresent(expired, forKey: "expired")
         try container.encodeIfPresent(expires, forKey: "expires")
         try container.encodeIfPresent(firstname, forKey: "firstname")
-        try container.encodeIfPresent(firstnameInvoice, forKey: "firstnameInvoice")
         try container.encodeIfPresent(gdprConsent, forKey: "gdprConsent")
         try container.encodeIfPresent(imageUrl, forKey: "imageUrl")
-        try container.encodeIfPresent(inactive, forKey: "inactive")
-        try container.encodeIfPresent(includeTaxForBusiness, forKey: "includeTaxForBusiness")
         try container.encodeIfPresent(initials, forKey: "initials")
         try container.encodeIfPresent(invited, forKey: "invited")
-        try container.encodeIfPresent(invoiceEmail, forKey: "invoiceEmail")
-        try container.encodeIfPresent(invoiceFirstname, forKey: "invoiceFirstname")
-        try container.encodeIfPresent(invoiceLastname, forKey: "invoiceLastname")
-        try container.encodeIfPresent(invoicePayment, forKey: "invoicePayment")
+        try container.encodeIfPresent(ipAddress, forKey: "ipAddress")
         try container.encodeIfPresent(language, forKey: "language")
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(lastname, forKey: "lastname")
-        try container.encodeIfPresent(lastnameInvoice, forKey: "lastnameInvoice")
-        try container.encodeIfPresent(licenseHolder, forKey: "licenseHolder")
-        try container.encodeIfPresent(licenseQuantity, forKey: "licenseQuantity")
         try container.encodeIfPresent(member, forKey: "member")
-        try container.encodeIfPresent(members, forKey: "members")
-        try container.encodeIfPresent(monthly, forKey: "monthly")
         try container.encodeIfPresent(needsSetup, forKey: "needsSetup")
         try container.encodeIfPresent(newsletter, forKey: "newsletter")
-        try container.encodeIfPresent(payPalPayment, forKey: "payPalPayment")
-        try container.encodeIfPresent(paymentOption, forKey: "paymentOption")
+        try container.encodeIfPresent(organizationSubscriptionActive, forKey: "organizationSubscriptionActive")
         try container.encodeIfPresent(permission, forKey: "permission")
+        try container.encodeIfPresent(personalSubscriptionActive, forKey: "personalSubscriptionActive")
         try container.encodeIfPresent(plan, forKey: "plan")
+        try container.encodeIfPresent(planBasic, forKey: "planBasic")
+        try container.encodeIfPresent(planBusiness, forKey: "planBusiness")
+        try container.encodeIfPresent(planPlus, forKey: "planPlus")
+        try container.encodeIfPresent(planPro, forKey: "planPro")
         try container.encodeIfPresent(plus, forKey: "plus")
         try container.encodeIfPresent(pro, forKey: "pro")
         try container.encodeIfPresent(product, forKey: "product")
         try container.encodeIfPresent(referrer, forKey: "referrer")
-        try container.encodeIfPresent(state, forKey: "state")
         try container.encodeIfPresent(status, forKey: "status")
-        try container.encodeIfPresent(street, forKey: "street")
-        try container.encodeIfPresent(stripePayment, forKey: "stripePayment")
-        try container.encodeIfPresent(subscriptionActive, forKey: "subscriptionActive")
-        try container.encodeIfPresent(subscriptionCancelled, forKey: "subscriptionCancelled")
-        try container.encodeIfPresent(subscriptionInactive, forKey: "subscriptionInactive")
-        try container.encodeIfPresent(taxId, forKey: "taxId")
+        try container.encodeIfPresent(subscriptionId, forKey: "subscriptionId")
         try container.encodeIfPresent(trial, forKey: "trial")
-        try container.encodeIfPresent(uk, forKey: "uk")
         try container.encodeIfPresent(user, forKey: "user")
         try container.encodeIfPresent(valid, forKey: "valid")
         try container.encodeIfPresent(validAndActivated, forKey: "validAndActivated")
         try container.encodeIfPresent(validProfile, forKey: "validProfile")
-        try container.encodeIfPresent(yearly, forKey: "yearly")
-        try container.encodeIfPresent(zip, forKey: "zip")
     }
 
     public func isEqual(to object: Any?) -> Bool {
       guard let object = object as? PublicProfileDto else { return false }
       guard self.activated == object.activated else { return false }
       guard self.activatedTeams == object.activatedTeams else { return false }
-      guard self.active == object.active else { return false }
       guard self.admin == object.admin else { return false }
-      guard self.at == object.at else { return false }
       guard self.basic == object.basic else { return false }
-      guard self.business == object.business else { return false }
-      guard self.businessCustomer == object.businessCustomer else { return false }
-      guard self.cancellationOffer == object.cancellationOffer else { return false }
-      guard self.city == object.city else { return false }
       guard self.country == object.country else { return false }
       guard self.countryIso == object.countryIso else { return false }
-      guard self.currency == object.currency else { return false }
+      guard self.createdAt == object.createdAt else { return false }
+      guard self.deleted == object.deleted else { return false }
       guard self.displayName == object.displayName else { return false }
       guard self.email == object.email else { return false }
-      guard self.emailInvoice == object.emailInvoice else { return false }
-      guard self.eu == object.eu else { return false }
-      guard self.euCustomer == object.euCustomer else { return false }
       guard self.expired == object.expired else { return false }
       guard self.expires == object.expires else { return false }
       guard self.firstname == object.firstname else { return false }
-      guard self.firstnameInvoice == object.firstnameInvoice else { return false }
       guard self.gdprConsent == object.gdprConsent else { return false }
       guard self.imageUrl == object.imageUrl else { return false }
-      guard self.inactive == object.inactive else { return false }
-      guard self.includeTaxForBusiness == object.includeTaxForBusiness else { return false }
       guard self.initials == object.initials else { return false }
       guard self.invited == object.invited else { return false }
-      guard self.invoiceEmail == object.invoiceEmail else { return false }
-      guard self.invoiceFirstname == object.invoiceFirstname else { return false }
-      guard self.invoiceLastname == object.invoiceLastname else { return false }
-      guard self.invoicePayment == object.invoicePayment else { return false }
+      guard self.ipAddress == object.ipAddress else { return false }
       guard self.language == object.language else { return false }
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.lastname == object.lastname else { return false }
-      guard self.lastnameInvoice == object.lastnameInvoice else { return false }
-      guard self.licenseHolder == object.licenseHolder else { return false }
-      guard self.licenseQuantity == object.licenseQuantity else { return false }
       guard self.member == object.member else { return false }
-      guard self.members == object.members else { return false }
-      guard self.monthly == object.monthly else { return false }
       guard self.needsSetup == object.needsSetup else { return false }
       guard self.newsletter == object.newsletter else { return false }
-      guard self.payPalPayment == object.payPalPayment else { return false }
-      guard self.paymentOption == object.paymentOption else { return false }
+      guard self.organizationSubscriptionActive == object.organizationSubscriptionActive else { return false }
       guard self.permission == object.permission else { return false }
+      guard self.personalSubscriptionActive == object.personalSubscriptionActive else { return false }
       guard self.plan == object.plan else { return false }
+      guard self.planBasic == object.planBasic else { return false }
+      guard self.planBusiness == object.planBusiness else { return false }
+      guard self.planPlus == object.planPlus else { return false }
+      guard self.planPro == object.planPro else { return false }
       guard self.plus == object.plus else { return false }
       guard self.pro == object.pro else { return false }
       guard self.product == object.product else { return false }
       guard self.referrer == object.referrer else { return false }
-      guard self.state == object.state else { return false }
       guard self.status == object.status else { return false }
-      guard self.street == object.street else { return false }
-      guard self.stripePayment == object.stripePayment else { return false }
-      guard self.subscriptionActive == object.subscriptionActive else { return false }
-      guard self.subscriptionCancelled == object.subscriptionCancelled else { return false }
-      guard self.subscriptionInactive == object.subscriptionInactive else { return false }
-      guard self.taxId == object.taxId else { return false }
+      guard self.subscriptionId == object.subscriptionId else { return false }
       guard self.trial == object.trial else { return false }
-      guard self.uk == object.uk else { return false }
       guard self.user == object.user else { return false }
       guard self.valid == object.valid else { return false }
       guard self.validAndActivated == object.validAndActivated else { return false }
       guard self.validProfile == object.validProfile else { return false }
-      guard self.yearly == object.yearly else { return false }
-      guard self.zip == object.zip else { return false }
       return true
     }
 

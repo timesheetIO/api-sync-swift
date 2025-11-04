@@ -14,7 +14,7 @@ extension TimesheetSyncApi.Device {
     */
     public enum UnregisterDevice {
 
-        public static let service = APIService<Response>(id: "unregisterDevice", tag: "Device", method: "DELETE", path: "/v1/devices/{id}", hasBody: false)
+        public static let service = APIService<Response>(id: "unregisterDevice", tag: "Device", method: "DELETE", path: "/v1/devices/{id}", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 

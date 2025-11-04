@@ -11,6 +11,8 @@ public class TeamMemberSyncDto: APIModel {
 
     public var deleted: Bool?
 
+    public var employeeId: String?
+
     public var id: String?
 
     public var lastUpdate: Int?
@@ -21,9 +23,10 @@ public class TeamMemberSyncDto: APIModel {
 
     public var user: String?
 
-    public init(created: Int? = nil, deleted: Bool? = nil, id: String? = nil, lastUpdate: Int? = nil, permission: Int? = nil, teamId: String? = nil, user: String? = nil) {
+    public init(created: Int? = nil, deleted: Bool? = nil, employeeId: String? = nil, id: String? = nil, lastUpdate: Int? = nil, permission: Int? = nil, teamId: String? = nil, user: String? = nil) {
         self.created = created
         self.deleted = deleted
+        self.employeeId = employeeId
         self.id = id
         self.lastUpdate = lastUpdate
         self.permission = permission
@@ -36,6 +39,7 @@ public class TeamMemberSyncDto: APIModel {
 
         created = try container.decodeIfPresent("created")
         deleted = try container.decodeIfPresent("deleted")
+        employeeId = try container.decodeIfPresent("employeeId")
         id = try container.decodeIfPresent("id")
         lastUpdate = try container.decodeIfPresent("lastUpdate")
         permission = try container.decodeIfPresent("permission")
@@ -48,6 +52,7 @@ public class TeamMemberSyncDto: APIModel {
 
         try container.encodeIfPresent(created, forKey: "created")
         try container.encodeIfPresent(deleted, forKey: "deleted")
+        try container.encodeIfPresent(employeeId, forKey: "employeeId")
         try container.encodeIfPresent(id, forKey: "id")
         try container.encodeIfPresent(lastUpdate, forKey: "lastUpdate")
         try container.encodeIfPresent(permission, forKey: "permission")
@@ -59,6 +64,7 @@ public class TeamMemberSyncDto: APIModel {
       guard let object = object as? TeamMemberSyncDto else { return false }
       guard self.created == object.created else { return false }
       guard self.deleted == object.deleted else { return false }
+      guard self.employeeId == object.employeeId else { return false }
       guard self.id == object.id else { return false }
       guard self.lastUpdate == object.lastUpdate else { return false }
       guard self.permission == object.permission else { return false }

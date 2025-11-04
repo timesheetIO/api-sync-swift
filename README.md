@@ -150,6 +150,8 @@ To add support for a specific asynchronous library, just add an extension on `AP
 
 ## Models
 
+- **AcknowledgeRequest**
+- **AcknowledgeResponse**
 - **AutomationSyncDto**
 - **DeviceCreateDto**
 - **DeviceDto**
@@ -161,6 +163,7 @@ To add support for a specific asynchronous library, just add an extension on `AP
 - **PublicProfileDto**
 - **RateSyncDto**
 - **SettingsDto**
+- **SubscriptionStatusResponse**
 - **SyncData**
 - **TagSyncDto**
 - **TaskSyncDto**
@@ -169,9 +172,14 @@ To add support for a specific asynchronous library, just add an extension on `AP
 - **TeamSyncDto**
 - **TimerSyncDto**
 - **ToDoSyncDto**
+- **VerificationResponse**
+- **VerifyPurchaseRequest**
 
 ## Requests
 
+- **TimesheetSyncApi.AppleStoreBilling**
+	- **GetAppleStoreSubscriptionStatus**: GET `/v1/billing/applestore/subscription/status`
+	- **VerifyAppleStorePurchase**: POST `/v1/billing/applestore/purchase/verify`
 - **TimesheetSyncApi.Billing**
 	- **StartTrial**: POST `/v1/billing/starttrial`
 - **TimesheetSyncApi.Device**
@@ -179,6 +187,10 @@ To add support for a specific asynchronous library, just add an extension on `AP
 	- **SendSyncMessage**: POST `/v1/devices/sendsyncmessagetootherdevices/{regid}/{lastsync}`
 	- **SyncDeviceNow**: POST `/v1/devices/syncnow/{id}`
 	- **UnregisterDevice**: DELETE `/v1/devices/{id}`
+- **TimesheetSyncApi.GooglePlayBilling**
+	- **AcknowledgeGooglePlaySubscription**: POST `/v1/billing/googleplay/subscription/acknowledge`
+	- **GetGooglePlaySubscriptionStatus**: GET `/v1/billing/googleplay/subscription/status`
+	- **VerifyGooglePlayPurchase**: POST `/v1/billing/googleplay/purchase/verify`
 - **TimesheetSyncApi.Profile**
 	- **Get**: GET `/v1/profiles/me`
 - **TimesheetSyncApi.Settings**

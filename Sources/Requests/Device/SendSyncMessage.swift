@@ -14,7 +14,7 @@ extension TimesheetSyncApi.Device {
     */
     public enum SendSyncMessage {
 
-        public static let service = APIService<Response>(id: "sendSyncMessage", tag: "Device", method: "POST", path: "/v1/devices/sendSyncMessageToOtherDevices/{regId}/{lastSync}", hasBody: false)
+        public static let service = APIService<Response>(id: "sendSyncMessage", tag: "Device", method: "POST", path: "/v1/devices/sendSyncMessageToOtherDevices/{regId}/{lastSync}", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 

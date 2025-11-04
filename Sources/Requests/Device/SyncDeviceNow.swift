@@ -14,7 +14,7 @@ extension TimesheetSyncApi.Device {
     */
     public enum SyncDeviceNow {
 
-        public static let service = APIService<Response>(id: "syncDeviceNow", tag: "Device", method: "POST", path: "/v1/devices/syncNow/{id}", hasBody: false)
+        public static let service = APIService<Response>(id: "syncDeviceNow", tag: "Device", method: "POST", path: "/v1/devices/syncNow/{id}", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 

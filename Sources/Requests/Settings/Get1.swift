@@ -14,7 +14,7 @@ extension TimesheetSyncApi.Settings {
     */
     public enum Get1 {
 
-        public static let service = APIService<Response>(id: "get_1", tag: "Settings", method: "GET", path: "/v1/settings", hasBody: false)
+        public static let service = APIService<Response>(id: "get_1", tag: "Settings", method: "GET", path: "/v1/settings", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 

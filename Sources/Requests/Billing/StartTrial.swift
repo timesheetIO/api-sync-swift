@@ -14,7 +14,7 @@ extension TimesheetSyncApi.Billing {
     */
     public enum StartTrial {
 
-        public static let service = APIService<Response>(id: "startTrial", tag: "Billing", method: "POST", path: "/v1/billing/startTrial", hasBody: false)
+        public static let service = APIService<Response>(id: "startTrial", tag: "Billing", method: "POST", path: "/v1/billing/startTrial", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 

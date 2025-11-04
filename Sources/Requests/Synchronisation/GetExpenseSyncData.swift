@@ -14,7 +14,7 @@ extension TimesheetSyncApi.Synchronisation {
     */
     public enum GetExpenseSyncData {
 
-        public static let service = APIService<Response>(id: "getExpenseSyncData", tag: "Synchronisation", method: "GET", path: "/v1/sync/getExpenseSyncData", hasBody: false)
+        public static let service = APIService<Response>(id: "getExpenseSyncData", tag: "Synchronisation", method: "GET", path: "/v1/sync/getExpenseSyncData", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 

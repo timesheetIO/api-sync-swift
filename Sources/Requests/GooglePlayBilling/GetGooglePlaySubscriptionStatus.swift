@@ -5,47 +5,46 @@
 
 import Foundation
 
-extension TimesheetSyncApi.Synchronisation {
+extension TimesheetSyncApi.GooglePlayBilling {
 
     /**
-    Update team members
+    Get Google Play subscription status
 
-    Update dirty team members.
+    Check the current status of the user's Google Play subscription including expiry time and payment state.
     */
-    public enum PostTeamMemberSyncData {
+    public enum GetGooglePlaySubscriptionStatus {
 
-        public static let service = APIService<Response>(id: "postTeamMemberSyncData", tag: "Synchronisation", method: "POST", path: "/v1/sync/postTeamMemberSyncData", hasBody: true, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
+        public static let service = APIService<Response>(id: "getGooglePlaySubscriptionStatus", tag: "Google Play Billing", method: "GET", path: "/v1/billing/googleplay/subscription/status", hasBody: false, securityRequirement: SecurityRequirement(type: "bearerAuth", scopes: []))
 
         public final class Request: APIRequest<Response> {
 
-            public var body: SyncData?
-
-            public init(body: SyncData?, encoder: RequestEncoder? = nil) {
-                self.body = body
-                super.init(service: PostTeamMemberSyncData.service) { defaultEncoder in
-                    return try (encoder ?? defaultEncoder).encode(body)
-                }
+            public init() {
+                super.init(service: GetGooglePlaySubscriptionStatus.service)
             }
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = Void
+            public typealias SuccessType = SubscriptionStatusResponse
 
-            /** Synchronised dirty TeamMembers */
-            case status200
+            /** Subscription status retrieved */
+            case status200(SubscriptionStatusResponse)
 
-            /** Not authorized */
+            /** User not authorized or not registered */
             case status401
 
-            public var success: Void? {
+            /** No Google Play subscription found for user */
+            case status404
+
+            public var success: SubscriptionStatusResponse? {
                 switch self {
-                case .status200: return ()
+                case .status200(let response): return response
                 default: return nil
                 }
             }
 
             public var response: Any {
                 switch self {
+                case .status200(let response): return response
                 default: return ()
                 }
             }
@@ -54,6 +53,7 @@ extension TimesheetSyncApi.Synchronisation {
                 switch self {
                 case .status200: return 200
                 case .status401: return 401
+                case .status404: return 404
                 }
             }
 
@@ -61,13 +61,15 @@ extension TimesheetSyncApi.Synchronisation {
                 switch self {
                 case .status200: return true
                 case .status401: return false
+                case .status404: return false
                 }
             }
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = .status200
+                case 200: self = try .status200(decoder.decode(SubscriptionStatusResponse.self, from: data))
                 case 401: self = .status401
+                case 404: self = .status404
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
                 }
             }
