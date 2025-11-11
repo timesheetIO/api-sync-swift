@@ -19,8 +19,6 @@ public class PublicProfileDto: APIModel {
 
     public var countryIso: String?
 
-    public var createdAt: DateTime?
-
     public var deleted: Bool?
 
     public var displayName: String?
@@ -93,14 +91,13 @@ public class PublicProfileDto: APIModel {
 
     public var validProfile: Bool?
 
-    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, admin: Bool? = nil, basic: Bool? = nil, country: String? = nil, countryIso: String? = nil, createdAt: DateTime? = nil, deleted: Bool? = nil, displayName: String? = nil, email: String? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, initials: String? = nil, invited: Bool? = nil, ipAddress: String? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, member: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, organizationSubscriptionActive: Bool? = nil, permission: Int? = nil, personalSubscriptionActive: Bool? = nil, plan: Int? = nil, planBasic: Bool? = nil, planBusiness: Bool? = nil, planPlus: Bool? = nil, planPro: Bool? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, status: Int? = nil, subscriptionId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil) {
+    public init(activated: Bool? = nil, activatedTeams: Bool? = nil, admin: Bool? = nil, basic: Bool? = nil, country: String? = nil, countryIso: String? = nil, deleted: Bool? = nil, displayName: String? = nil, email: String? = nil, expired: Bool? = nil, expires: Int? = nil, firstname: String? = nil, gdprConsent: Bool? = nil, imageUrl: String? = nil, initials: String? = nil, invited: Bool? = nil, ipAddress: String? = nil, language: String? = nil, lastUpdate: Int? = nil, lastname: String? = nil, member: Bool? = nil, needsSetup: Bool? = nil, newsletter: Bool? = nil, organizationSubscriptionActive: Bool? = nil, permission: Int? = nil, personalSubscriptionActive: Bool? = nil, plan: Int? = nil, planBasic: Bool? = nil, planBusiness: Bool? = nil, planPlus: Bool? = nil, planPro: Bool? = nil, plus: Bool? = nil, pro: Bool? = nil, product: String? = nil, referrer: String? = nil, status: Int? = nil, subscriptionId: String? = nil, trial: Bool? = nil, user: String? = nil, valid: Bool? = nil, validAndActivated: Bool? = nil, validProfile: Bool? = nil) {
         self.activated = activated
         self.activatedTeams = activatedTeams
         self.admin = admin
         self.basic = basic
         self.country = country
         self.countryIso = countryIso
-        self.createdAt = createdAt
         self.deleted = deleted
         self.displayName = displayName
         self.email = email
@@ -148,7 +145,6 @@ public class PublicProfileDto: APIModel {
         basic = try container.decodeIfPresent("basic")
         country = try container.decodeIfPresent("country")
         countryIso = try container.decodeIfPresent("countryIso")
-        createdAt = try container.decodeIfPresent("createdAt")
         deleted = try container.decodeIfPresent("deleted")
         displayName = try container.decodeIfPresent("displayName")
         email = try container.decodeIfPresent("email")
@@ -196,7 +192,6 @@ public class PublicProfileDto: APIModel {
         try container.encodeIfPresent(basic, forKey: "basic")
         try container.encodeIfPresent(country, forKey: "country")
         try container.encodeIfPresent(countryIso, forKey: "countryIso")
-        try container.encodeIfPresent(createdAt, forKey: "createdAt")
         try container.encodeIfPresent(deleted, forKey: "deleted")
         try container.encodeIfPresent(displayName, forKey: "displayName")
         try container.encodeIfPresent(email, forKey: "email")
@@ -243,7 +238,6 @@ public class PublicProfileDto: APIModel {
       guard self.basic == object.basic else { return false }
       guard self.country == object.country else { return false }
       guard self.countryIso == object.countryIso else { return false }
-      guard self.createdAt == object.createdAt else { return false }
       guard self.deleted == object.deleted else { return false }
       guard self.displayName == object.displayName else { return false }
       guard self.email == object.email else { return false }
